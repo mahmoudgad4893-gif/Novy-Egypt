@@ -2,8 +2,11 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Hub | وظائف مصر</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#e30613">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Novy Jobs | وظائف مصر</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
@@ -14,6 +17,7 @@
     --red-dark:#b6000b;
     --blue:#234b85;
     --navy:#182b49;
+    --gold:#ffc107;
     --bg:#f4f6f9;
 }
 *{box-sizing:border-box}
@@ -22,6 +26,7 @@ body{
     font-family:"Segoe UI",Tahoma,Arial,sans-serif;
     background:var(--bg);
     color:#1f2937;
+    -webkit-tap-highlight-color: transparent;
 }
 .navbar{
     background:#fff;
@@ -48,35 +53,57 @@ body{
     border-radius:30px;
     padding:10px 25px!important;
 }
+.btn-products{
+    background: var(--gold);
+    color: var(--navy)!important;
+    border-radius: 30px;
+    padding: 10px 25px!important;
+    font-weight: 800;
+    border: none;
+    transition: .3s;
+}
+.btn-products:hover{
+    background: #e0a800;
+    transform: scale(1.05);
+}
+
 .hero{
-    min-height:520px;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
+    min-height: 650px;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 60px;
+    padding-bottom: 100px;
+    position: relative;
+    overflow: hidden;
     background:
-      linear-gradient(90deg, rgba(128,0,8,.94), rgba(227,6,19,.82), rgba(35,75,133,.55)),
-      radial-gradient(circle at 80% 20%, #526d9b 0, transparent 35%),
-      linear-gradient(135deg,#182b49,#e30613);
+      linear-gradient(90deg, rgba(128,0,8,.85), rgba(227,6,19,.75), rgba(35,75,133,.4)),
+      url('images/hero-bg.png') center/cover no-repeat;
     color:#fff;
 }
 .hero:after{
-    content:"JOB HUB";
+    content:"NOVY JOBS";
     position:absolute;
     left:-20px;
     bottom:-35px;
     font-size:130px;
     font-weight:900;
-    opacity:.07;
+    opacity:.05;
     letter-spacing:8px;
+    pointer-events: none;
 }
-.hero-content{position:relative;z-index:2}
+.hero-content{position:relative;z-index:2;width: 100%;}
 .hero h1{
     font-size:clamp(38px,5vw,66px);
     font-weight:900;
     margin-bottom:15px;
+    text-shadow: 2px 2px 15px rgba(0,0,0,.5);
 }
-.hero p{font-size:22px;max-width:720px;color:#fff}
+.hero p{
+    font-size:22px;
+    max-width:720px;
+    color:#fff;
+    text-shadow: 1px 1px 10px rgba(0,0,0,.5);
+}
 .search-panel{
     margin-top:35px;
     padding:22px;
@@ -100,13 +127,36 @@ body{
     width:100%;
 }
 .btn-search:hover{background:var(--red-dark)}
-.main{margin-top:-45px;position:relative;z-index:5}
+
+.main{
+    margin-top: 50px;
+    position: relative;
+    z-index: 5;
+}
+
+#suggestedBranchContainer {
+    position: relative;
+    z-index: 100;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+#suggestedBranchContainer:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+#suggestedBranchContainer:not(:empty) {
+    display: block;
+}
+
 .featured{
     background:linear-gradient(120deg,#7d0008,#e30613);
     border-radius:24px;
     padding:34px;
     color:#fff;
     box-shadow:0 18px 35px rgba(158,0,10,.25);
+    position: relative;
+    z-index: 6;
 }
 .featured-badge{
     display:inline-block;
@@ -147,37 +197,347 @@ body{
     border-radius:5px;
     margin-top:9px;
 }
+
+.interview-banner{
+    background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
+    border-radius: 24px;
+    padding: 0;
+    margin: 30px 0 20px;
+    color: var(--navy);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(227,6,19,.12);
+    border: 2px solid rgba(227,6,19,.08);
+    display: flex;
+    align-items: stretch;
+}
+.interview-banner::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -15%;
+    width: 45%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(227,6,19,.06), transparent 65%);
+    pointer-events: none;
+}
+.interview-banner .interview-side{
+    background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+    padding: 25px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 180px;
+    position: relative;
+    overflow: hidden;
+}
+.interview-banner .interview-side::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.15), transparent 60%);
+    pointer-events: none;
+}
+.interview-banner .interview-side i{
+    font-size: 38px;
+    color: #fff;
+    z-index: 1;
+    position: relative;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,.2));
+}
+.interview-banner .interview-side span{
+    color: #fff;
+    font-weight: 900;
+    font-size: 15px;
+    z-index: 1;
+    position: relative;
+    letter-spacing: .5px;
+}
+.interview-banner .interview-body{
+    flex: 1;
+    padding: 22px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+}
+.interview-banner .interview-body .title{
+    font-size: 19px;
+    font-weight: 900;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+.interview-banner .interview-body .title i{
+    color: var(--red);
+    font-size: 20px;
+}
+.interview-banner .interview-cards{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.interview-banner .info-chip{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    border: 1.5px solid rgba(227,6,19,.15);
+    transition: .3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,.04);
+}
+.interview-banner .info-chip:hover{
+    border-color: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(227,6,19,.15);
+}
+.interview-banner .info-chip .chip-icon{
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #fff1f2, #ffe0e0);
+    color: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+.interview-banner .info-chip strong{
+    color: var(--red);
+    font-weight: 900;
+    margin-right: 3px;
+}
+
 .job-card{
     height:100%;
     background:#fff;
-    border-radius:20px;
-    padding:24px;
-    box-shadow:0 6px 20px rgba(0,0,0,.06);
-    transition:.25s;
+    border-radius:22px;
+    padding:0;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.07);
+    transition:all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     border:1px solid #eef0f3;
+    position:relative;
+    display:flex;
+    flex-direction:column;
 }
 .job-card:hover{
-    transform:translateY(-7px);
-    box-shadow:0 16px 35px rgba(0,0,0,.12);
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+    border-color:rgba(227,6,19,.3);
 }
+.job-card:hover .job-card-header{
+    background:linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+}
+.job-card:hover .job-card-header .job-icon{
+    background:rgba(255,255,255,.2);
+    color:#fff;
+}
+
+.job-card-header{
+    background:linear-gradient(135deg, #f8f9fa 0%, #eef0f3 100%);
+    padding:20px 22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    transition:all 0.35s ease;
+    position:relative;
+}
+.job-card-header::after{
+    content:'';
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height:3px;
+    background:linear-gradient(90deg, var(--red), var(--gold));
+    opacity:0;
+    transition:.3s;
+}
+.job-card:hover .job-card-header::after{
+    opacity:1;
+}
+
 .job-icon{
-    width:58px;height:58px;
-    display:grid;place-items:center;
-    border-radius:18px;
+    width:60px;
+    height:60px;
+    display:grid;
+    place-items:center;
+    border-radius:16px;
+    background:#fff;
+    color:var(--red);
+    font-size:26px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transition:.35s ease;
+    border:2px solid rgba(227,6,19,.1);
+}
+
+.badge-email {
+    background: linear-gradient(135deg, var(--gold), #ffdb4d) !important;
+    color: var(--navy) !important;
+    font-weight: 800 !important;
+    font-size: 11px !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 3px 10px rgba(255,193,7,.3);
+    animation: pulse-email 2s infinite;
+}
+@keyframes pulse-email {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.job-card-body{
+    padding:20px 22px 22px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.job-card h5{
+    font-weight:900;
+    color:var(--navy);
+    font-size:19px;
+    margin-bottom:12px;
+    line-height:1.3;
+}
+
+.job-info-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 0;
+    color:#4b5563;
+    font-size:13.5px;
+    border-bottom:1px dashed #f0f2f5;
+}
+.job-info-row:last-of-type{
+    border-bottom:none;
+}
+.job-info-row i{
+    width:26px;
+    height:26px;
+    display:grid;
+    place-items:center;
     background:#fff1f2;
     color:var(--red);
-    font-size:25px;
+    border-radius:8px;
+    font-size:12px;
+    flex-shrink:0;
 }
-.job-card h5{font-weight:900;color:var(--navy)}
-.job-meta{color:#6b7280;font-size:14px}
+.job-info-row.location i{
+    background:#e8f4fd;
+    color:#1976d2;
+}
+.job-info-row.salary i{
+    background:#e8f5e9;
+    color:#2e7d32;
+}
+.job-info-row.branches i{
+    background:#fff3e0;
+    color:#ef6c00;
+}
+.job-info-row span{
+    font-weight:600;
+    color:#374151;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    line-height:1.4;
+}
+
+.job-card-actions{
+    display:flex;
+    gap:10px;
+    margin-top:auto;
+    padding-top:16px;
+    border-top:2px dashed #f0f2f5;
+}
 .btn-job{
-    background:var(--red);
-    color:#fff;border:none;
-    border-radius:30px;
-    padding:10px 25px;
+    background:linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+    color:#fff;
+    border:none;
+    border-radius:25px;
+    padding:12px 24px;
     font-weight:800;
+    font-size:14px;
+    transition:all 0.3s ease;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    box-shadow:0 4px 15px rgba(227,6,19,.25);
+    flex:1;
 }
-.btn-job:hover{background:var(--red-dark);color:#fff}
+.btn-job:hover{
+    color:#fff;
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(227,6,19,.4);
+}
+.btn-email{
+    background:linear-gradient(135deg, var(--gold) 0%, #e0a800 100%);
+    color:var(--navy);
+    border:none;
+    border-radius:25px;
+    padding:12px 24px;
+    font-weight:800;
+    font-size:14px;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transition:all 0.3s ease;
+    box-shadow:0 4px 15px rgba(255,193,7,.3);
+    flex:1;
+}
+.btn-email:hover{
+    background:linear-gradient(135deg, #e0a800 0%, var(--gold) 100%);
+    color:var(--navy);
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(255,193,7,.5);
+}
+
+.btn-details-icon{
+    background:#fff;
+    border:2px solid #e5e7eb;
+    color:var(--navy);
+    width:50px;
+    height:50px;
+    min-width:50px;
+    border-radius:25px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    transition:all 0.3s ease;
+    cursor:pointer;
+}
+.btn-details-icon:hover{
+    background:var(--navy);
+    color:#fff;
+    border-color:var(--navy);
+    transform:translateY(-2px);
+    box-shadow:0 8px 22px rgba(24,43,73,.3);
+}
+
 .side-box{
     background:linear-gradient(145deg,#edf3fb,#fff);
     border-radius:20px;
@@ -207,7 +567,7 @@ footer{
 }
 .modal-header{background:var(--red);color:#fff}
 .modal-header .btn-close{filter:brightness(0) invert(1)}
-/* ===== تفاصيل الفرع ===== */
+
 .branch-selector-box {
     background: #f8f9fa;
     padding: 20px;
@@ -237,9 +597,7 @@ footer{
     padding: 8px 0;
     border-bottom: 1px solid #f0f0f0;
 }
-.branch-info-box .info-row:last-child {
-    border-bottom: none;
-}
+.branch-info-box .info-row:last-child { border-bottom: none; }
 .branch-info-box .info-icon {
     color: var(--red);
     width: 25px;
@@ -258,7 +616,6 @@ footer{
     border-radius: 10px;
     border: none;
 }
-/* ===== أزرار الاتصال ===== */
 .phone-row {
     display: flex;
     align-items: center;
@@ -275,9 +632,7 @@ footer{
     font-size: 14px;
     border: 1px solid #e9ecef;
 }
-.phone-row .phone-item i {
-    color: var(--red);
-}
+.phone-row .phone-item i { color: var(--red); }
 .phone-row .phone-item a {
     color: var(--navy);
     text-decoration: none;
@@ -285,9 +640,7 @@ footer{
     direction: ltr;
     display: inline-block;
 }
-.phone-row .phone-item a:hover {
-    color: var(--red);
-}
+.phone-row .phone-item a:hover { color: var(--red); }
 .btn-call {
     background: var(--red);
     color: #fff;
@@ -345,14 +698,656 @@ footer{
     color: #fff;
     transform: scale(1.05);
 }
-@media(max-width:768px){
-    .brand-logo{width:145px}
-    .hero{min-height:600px}
-    .main{margin-top:-20px}
-    .featured{padding:25px}
-    .hero p{font-size:18px}
-    .phone-row .phone-item {font-size:12px;padding:3px 10px 3px 12px;}
-    .btn-call, .btn-call-green, .btn-whatsapp {font-size:11px;padding:3px 10px;}
+
+.suggested-branch {
+    background: linear-gradient(135deg, #fff9e6, #fff);
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.2);
+    animation: slideDown 0.5s ease-out;
+    position: relative;
+    z-index: 101;
+    color: #333;
+}
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.suggested-branch .suggested-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #333;
+    padding: 5px 18px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+.suggested-branch h4 {
+    color: var(--red);
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.suggested-branch .address-text {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.suggested-branch .manager-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-right: 4px solid var(--red);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: .3s;
+}
+.suggested-branch .manager-card:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.suggested-branch .manager-card.manager2 {
+    border-right-color: #28a745;
+}
+.suggested-branch .manager-name {
+    font-weight: 800;
+    color: var(--navy);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.suggested-branch .manager-name i {
+    color: var(--red);
+    margin-left: 8px;
+}
+.suggested-branch .manager-card.manager2 .manager-name i {
+    color: #28a745;
+}
+.suggested-branch .action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+.suggested-branch .btn-action {
+    border: none;
+    border-radius: 30px;
+    padding: 8px 18px;
+    font-weight: 700;
+    font-size: 13px;
+    transition: .3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.suggested-branch .btn-action.call {
+    background: var(--red);
+    color: #fff;
+}
+.suggested-branch .btn-action.call:hover {
+    background: var(--red-dark);
+    transform: scale(1.05);
+}
+.suggested-branch .btn-action.whatsapp {
+    background: #25D366;
+    color: #fff;
+}
+.suggested-branch .btn-action.whatsapp:hover {
+    background: #1da851;
+    transform: scale(1.05);
+}
+.suggested-branch .btn-action.call-green {
+    background: #28a745;
+    color: #fff;
+}
+.suggested-branch .btn-action.call-green:hover {
+    background: #1e7e34;
+    transform: scale(1.05);
+}
+.close-suggestion {
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    padding: 5px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: .3s;
+}
+.close-suggestion:hover {
+    background: #f0f0f0;
+}
+
+.requirements-box {
+    background: #fff9e6;
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 18px 20px;
+    margin-top: 15px;
+}
+.requirements-box h6 {
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.requirements-box h6 i {
+    color: var(--gold);
+}
+.requirements-box ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.requirements-box ul li {
+    padding: 7px 0;
+    font-size: 14px;
+    color: #444;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.6;
+    border-bottom: 1px dashed #f0e6c8;
+}
+.requirements-box ul li:last-child {
+    border-bottom: none;
+}
+.requirements-box ul li i {
+    color: #28a745;
+    margin-top: 5px;
+    flex-shrink: 0;
+    font-size: 13px;
+    width: 16px;
+    text-align: center;
+}
+.requirements-box ul li.warning i {
+    color: #dc3545;
+}
+.requirements-box ul li.warning {
+    color: #b6000b;
+    font-weight: 600;
+}
+
+.email-apply-box {
+    background: #fff9e6;
+    border: 2px dashed var(--gold);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.email-apply-box h6 {
+    color: var(--navy);
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.email-apply-box h6 i {
+    color: var(--gold);
+}
+.email-apply-box p {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+.email-box-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.btn-send-cv {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 28px;
+    font-weight: 700;
+    transition: .3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(24,43,73,.25);
+    width: 100%;
+}
+.btn-send-cv:hover {
+    background: var(--red);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(227,6,19,.35);
+}
+.btn-send-cv:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.email-branch-selector {
+    background: #fff;
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    padding: 18px 20px;
+    margin-bottom: 15px;
+}
+.email-branch-selector h6 {
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.email-branch-selector h6 i {
+    color: var(--red);
+}
+.email-branch-selector select {
+    border: 2px solid var(--red);
+    border-radius: 10px;
+    padding: 12px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
+    background: #fff;
+}
+.email-branch-selector select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(227,6,19,.15);
+}
+.selected-branch-info {
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: #e8f5e9;
+    border-radius: 10px;
+    border-right: 4px solid #28a745;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #2e7d32;
+    font-weight: 700;
+}
+.selected-branch-info.show {
+    display: flex;
+}
+.selected-branch-info i {
+    color: #28a745;
+    font-size: 18px;
+}
+
+.products-section {
+    padding: 60px 0 40px;
+    background: linear-gradient(180deg, #f8f9fa, #fff);
+    min-height: 100vh;
+}
+.products-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+.products-header .badge-products {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    padding: 6px 22px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.products-header h2 {
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+.products-header p {
+    color: #666;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.products-header h2 span {
+    color: var(--red);
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+    transition: all 0.35s ease;
+    height: 100%;
+    border: 1px solid #eef0f3;
+    cursor: pointer;
+    position: relative;
+}
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.15);
+    border-color: var(--red);
+}
+.product-card .product-image {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 20px;
+    transition: .3s;
+}
+.product-card:hover .product-image {
+    background: linear-gradient(135deg, #fff5f5, #ffe0e0);
+}
+.product-card .product-body {
+    padding: 18px 20px 22px;
+    text-align: center;
+}
+.product-card .product-name {
+    font-weight: 900;
+    color: var(--red);
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.novy-brand {
+    color: var(--red);
+    font-weight: 900;
+}
+
+@media(max-width: 992px) {
+    .hero { min-height: 580px; padding-top: 50px; padding-bottom: 70px; }
+    .hero h1 { font-size: 42px; }
+    .hero p { font-size: 18px; }
+}
+
+@media(max-width: 768px) {
+    .navbar { padding: 8px 0; }
+    .brand-logo { width: 130px; height: 45px; }
+    .navbar-toggler {
+        padding: 8px 12px;
+        border: 2px solid var(--red);
+        border-radius: 8px;
+    }
+    .navbar-collapse {
+        background: white;
+        border-radius: 15px;
+        padding: 15px;
+        margin-top: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,.1);
+    }
+    .nav-link {
+        padding: 12px 15px !important;
+        border-radius: 10px;
+        margin: 3px 0 !important;
+        font-size: 15px;
+        text-align: center;
+    }
+    .nav-link:hover { background: #f8f9fa; }
+    .btn-home, .btn-products {
+        padding: 12px 20px !important;
+        display: block;
+        text-align: center;
+        margin: 5px 0 !important;
+    }
+
+    .hero {
+        min-height: 480px;
+        padding-top: 35px;
+        padding-bottom: 50px;
+        background:
+          linear-gradient(90deg, rgba(128,0,8,.85), rgba(227,6,19,.75), rgba(35,75,133,.4)),
+          url('images/hero-bg.png') center 30% / cover no-repeat;
+        background-attachment: scroll;
+        background-position: center 30%;
+    }
+    .hero:after { font-size: 80px; bottom: -20px; }
+    .hero h1 { font-size: 28px; line-height: 1.3; margin-bottom: 12px; }
+    .hero p { font-size: 16px; line-height: 1.6; }
+    .hero .badge { font-size: 12px; padding: 6px 14px !important; }
+
+    .search-panel {
+        padding: 15px;
+        border-radius: 18px;
+        margin-top: 25px;
+    }
+    .search-panel .row > div {
+        margin-bottom: 10px;
+    }
+    .search-panel .form-control,
+    .search-panel .form-select {
+        height: 52px;
+        font-size: 15px;
+        padding: 12px 15px;
+        border-radius: 12px;
+    }
+    .btn-search {
+        height: 52px;
+        font-size: 16px;
+        font-weight: 800;
+        border-radius: 12px;
+    }
+
+    .interview-banner {
+        flex-direction: column;
+        border-radius: 18px;
+        margin: 20px 0 15px;
+    }
+    .interview-banner .interview-side {
+        padding: 18px;
+        flex-direction: row;
+        gap: 12px;
+        min-width: auto;
+        justify-content: center;
+    }
+    .interview-banner .interview-side i {
+        font-size: 26px;
+    }
+    .interview-banner .interview-side span {
+        font-size: 14px;
+    }
+    .interview-banner .interview-body {
+        padding: 18px;
+        gap: 10px;
+    }
+    .interview-banner .interview-body .title {
+        font-size: 16px;
+        justify-content: center;
+    }
+    .interview-banner .interview-body .title i {
+        font-size: 17px;
+    }
+    .interview-banner .interview-cards {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .interview-banner .info-chip {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 11px 14px;
+        font-size: 13px;
+    }
+    .interview-banner .info-chip .chip-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .main { margin-top: 30px; }
+    .featured {
+        padding: 22px 20px;
+        border-radius: 18px;
+    }
+    .featured-badge { font-size: 12px; padding: 5px 14px; }
+    .featured h2 { font-size: 24px; margin-top: 10px; }
+    .featured p { font-size: 14px; line-height: 1.6; }
+    .featured .d-flex span { font-size: 13px; }
+    .btn-apply, .btn-details {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
+        margin: 5px 0 !important;
+    }
+
+    .section-title {
+        font-size: 22px;
+        margin: 30px 0 18px;
+    }
+    .section-title:after { width: 50px; height: 3px; }
+
+    .job-card-header{ padding: 18px 18px; }
+    .job-icon { width: 52px; height: 52px; font-size: 22px; border-radius: 14px; }
+    .job-card-body{ padding: 18px 18px 20px; }
+    .job-card h5 { font-size: 17px; margin-bottom: 12px; }
+    .job-info-row{ font-size: 13px; padding: 7px 0; }
+    .job-info-row i{ width: 24px; height: 24px; font-size: 11px; }
+    .job-card-actions{ padding-top: 14px; gap: 8px; }
+    .btn-job, .btn-email { padding: 13px 18px; font-size: 14px; min-height: 50px; border-radius: 25px; }
+    .btn-details-icon { min-width: 50px; min-height: 50px; width: 50px; height: 50px; }
+
+    .side-box { padding: 20px; margin-top: 25px; }
+    .side-box h4 { font-size: 18px; }
+    .side-box li { font-size: 14px; padding: 8px 0; }
+
+    .filter-btn { padding: 10px 16px; font-size: 13px; margin: 3px; min-height: 42px; }
+
+    footer { padding: 30px 0; margin-top: 40px; }
+    footer h3 { font-size: 22px; }
+    footer p, footer small { font-size: 13px; }
+
+    .modal-dialog { margin: 0; max-width: 100%; min-height: 100vh; }
+    .modal-content { border-radius: 0; min-height: 100vh; }
+    .modal-header {
+        padding: 15px 18px;
+        border-radius: 0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    .modal-header .modal-title { font-size: 16px; font-weight: 800; }
+    .modal-body { padding: 18px 15px; font-size: 14px; }
+
+    .branch-selector-box { padding: 15px; border-radius: 12px; }
+    .branch-selector-box h6 { font-size: 14px; margin-bottom: 10px; }
+    .branch-selector-box select { padding: 12px; font-size: 15px; min-height: 50px; }
+    .branch-info-box { padding: 15px; border-radius: 12px; }
+    .branch-info-box h6 { font-size: 14px; }
+    .branch-info-box .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 10px 0;
+        font-size: 13px;
+    }
+    .branch-info-box .info-icon { font-size: 14px; margin-bottom: 3px; }
+
+    .phone-row { width: 100%; gap: 8px; flex-direction: row; flex-wrap: wrap; }
+    .phone-row .phone-item {
+        flex: 1;
+        min-width: 140px;
+        justify-content: center;
+        padding: 10px 14px;
+        font-size: 14px;
+        min-height: 46px;
+    }
+    .btn-call, .btn-call-green, .btn-whatsapp {
+        flex: 1;
+        min-width: 90px;
+        padding: 10px 14px;
+        font-size: 13px;
+        min-height: 46px;
+        justify-content: center;
+    }
+
+    .requirements-box { padding: 15px; border-radius: 12px; }
+    .requirements-box h6 { font-size: 15px; margin-bottom: 12px; }
+    .requirements-box ul li { font-size: 13px; padding: 8px 0; line-height: 1.6; }
+
+    .email-apply-box { padding: 15px; border-radius: 12px; }
+    .email-apply-box h6 { font-size: 15px; }
+    .email-apply-box p { font-size: 13px; line-height: 1.6; }
+    .email-box-row { flex-direction: column; align-items: stretch; gap: 10px; }
+    .btn-send-cv {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+        font-size: 15px;
+        min-height: 50px;
+    }
+
+    .email-branch-selector { padding: 15px; }
+    .email-branch-selector h6 { font-size: 13px; }
+    .email-branch-selector select { padding: 10px; font-size: 14px; }
+    .selected-branch-info { font-size: 13px; padding: 10px 12px; }
+
+    .map-container-box { padding: 12px; }
+    .map-container-box iframe { height: 200px; }
+
+    .badge-email { font-size: 10px !important; padding: 5px 11px !important; }
+
+    .products-section { padding: 30px 0; }
+    .products-header h2 { font-size: 22px; }
+    .products-header p { font-size: 14px; padding: 0 15px; }
+    .product-card .product-image { height: 140px; padding: 12px; }
+    .product-card .product-name { font-size: 16px; }
+    .product-card .product-body { padding: 12px 10px 15px; }
+
+    .suggested-branch { padding: 18px 15px; border-radius: 16px; }
+    .suggested-branch .suggested-badge { font-size: 12px; padding: 4px 14px; }
+    .suggested-branch h4 { font-size: 20px; }
+    .suggested-branch .address-text { font-size: 14px; line-height: 1.5; }
+    .suggested-branch .manager-card { padding: 12px; }
+    .suggested-branch .manager-name { font-size: 15px; }
+    .suggested-branch .action-buttons { flex-direction: column; gap: 6px; }
+    .suggested-branch .btn-action {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 14px;
+        min-height: 46px;
+    }
+    .close-suggestion { padding: 8px 16px; font-size: 12px; }
+
+    .container { padding-left: 12px; padding-right: 12px; }
+    button, a, .btn-job, .btn-email, .btn-call, .btn-whatsapp, .filter-btn {
+        -webkit-tap-highlight-color: transparent;
+        cursor: pointer;
+    }
+}
+
+@media(max-width: 480px) {
+    .hero {
+        min-height: 420px;
+        background-position: center 25%;
+    }
+    .hero h1 { font-size: 24px; }
+    .hero p { font-size: 15px; }
+    .featured h2 { font-size: 20px; }
+    .section-title { font-size: 19px; }
+    .job-card h5 { font-size: 16px; }
+    .btn-job, .btn-email { font-size: 13px; padding: 12px 14px; }
+    .product-card .product-image { height: 120px; }
+    .product-card .product-name { font-size: 14px; }
+    .filter-btn { font-size: 12px; padding: 8px 12px; }
+    .modal-body { padding: 15px 12px; }
+    .branch-info-box .info-row { font-size: 12px; }
+    .btn-call, .btn-call-green, .btn-whatsapp {
+        font-size: 12px;
+        padding: 9px 10px;
+        min-width: 80px;
+    }
 }
 </style>
 </head>
@@ -369,14 +1364,21 @@ footer{
     </button>
     <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-            <li class="nav-item"><a class="nav-link btn-home" href="#home">الرئيسية</a></li>
-            <li class="nav-item"><a class="nav-link" href="#jobs"><i class="fa-solid fa-briefcase ms-1"></i> الوظائف</a></li>
-            <li class="nav-item"><a class="nav-link" href="#branches"><i class="fa-solid fa-location-dot ms-1"></i> الفروع</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about"><i class="fa-solid fa-users ms-1"></i> عن Job Hub</a></li>
+            <li class="nav-item"><a class="nav-link btn-home" href="#home" onclick="showMain()">الرئيسية</a></li>
+            <li class="nav-item"><a class="nav-link" href="#jobs" onclick="showMain()"><i class="fa-solid fa-briefcase ms-1"></i> الوظائف</a></li>
+            <li class="nav-item">
+                <a class="nav-link btn-products" href="#products" onclick="event.preventDefault(); showProducts()">
+                    <i class="fa-solid fa-box-open ms-1"></i> المنتجات
+                </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#branches" onclick="showMain()"><i class="fa-solid fa-location-dot ms-1"></i> الفروع</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about" onclick="showMain()"><i class="fa-solid fa-users ms-1"></i> عن <span class="novy-brand">Novy</span> Jobs</a></li>
         </ul>
     </div>
 </div>
 </nav>
+
+<div id="mainPage">
 
 <section class="hero" id="home">
 <div class="container hero-content">
@@ -388,12 +1390,12 @@ footer{
 
             <div class="search-panel">
                 <div class="row g-3">
-                    <div class="col-lg-5">
-                        <input id="searchJob" class="form-control" placeholder="ابحث عن وظيفة...">
+                    <div class="col-12 col-lg-5">
+                        <input id="searchJob" class="form-control" placeholder="🔍 ابحث عن وظيفة...">
                     </div>
-                    <div class="col-lg-5">
-                        <select id="govFilter" class="form-select">
-                            <option value="all">اختر الفرع</option>
+                    <div class="col-12 col-lg-5">
+                        <select id="govFilter" class="form-select" onchange="showSuggestedBranch()">
+                            <option value="all">📍 اختر الفرع</option>
                             <option value="الشرقية">الشرقية</option>
                             <option value="وسط الإسكندرية">وسط الإسكندرية</option>
                             <option value="غرب الإسكندرية">غرب الإسكندرية</option>
@@ -401,19 +1403,48 @@ footer{
                             <option value="القاهرة">القاهرة</option>
                             <option value="الغربية">الغربية</option>
                             <option value="الجيزة">الجيزة</option>
+                            <option value="المنوفية">المنوفية</option>
+                            <option value="الدقهلية">الدقهلية</option>
+                            <option value="القليوبية">القليوبية</option>
+                            <option value="اسيوط">اسيوط</option>
                         </select>
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-12 col-lg-2">
                         <button class="btn-search" id="searchBtn"><i class="fa-solid fa-magnifying-glass ms-1"></i> بحث</button>
                     </div>
                 </div>
             </div>
+
+            <div id="suggestedBranchContainer"></div>
         </div>
     </div>
 </div>
 </section>
 
 <main class="container main">
+
+<section class="interview-banner">
+    <div class="interview-side">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>مواعيد المقابلات</span>
+    </div>
+    <div class="interview-body">
+        <h4 class="title">
+            <i class="fa-solid fa-clock"></i>
+            نستقبل المقابلات خلال الأوقات التالية
+        </h4>
+        <div class="interview-cards">
+            <div class="info-chip">
+                <span class="chip-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                <span>من <strong>السبت</strong> إلى <strong>الخميس</strong></span>
+            </div>
+            <div class="info-chip">
+                <span class="chip-icon"><i class="fa-solid fa-hourglass-half"></i></span>
+                <span>من <strong>9 صباحاً</strong> حتى <strong>3 العصر</strong></span>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="featured">
 <div class="row align-items-center g-4">
@@ -443,18 +1474,19 @@ footer{
 
     <div class="col-lg-3" id="about">
         <div class="side-box mt-lg-5">
-            <h4><i class="fa-solid fa-users ms-1"></i> لماذا Novy ؟</h4>
+            <h4><i class="fa-solid fa-users ms-1"></i> لماذا <span class="novy-brand">Novy</span>؟</h4>
             <ul class="p-0 mt-3">
-                           <li><i class="fa-solid fa-circle-check check"></i>مرتب اساسى + عمولة + مسابقات</li>
-                          <li><i class="fa-solid fa-circle-check check"></i> ضمان 75% من العمولة اول 3 شهور</li>
-
+                <li><i class="fa-solid fa-circle-check check"></i> مرتب اساسى + عمولة + مسابقات</li>
+                <li><i class="fa-solid fa-circle-check check"></i> ضمان 75% من العمولة اول 3 شهور</li>
+                <li><i class="fa-solid fa-circle-check check"></i> فرصة للترقية</li>
+                <li><i class="fa-solid fa-circle-check check"></i> اختيار اقرب فرع مناسب</li>
+                <li><i class="fa-solid fa-circle-check check"></i> توفير مواصلات</li>
                 <li><i class="fa-solid fa-circle-check check"></i> تامينات من اول يوم</li>
-                <li><i class="fa-solid fa-circle-check check"></i> اختيار الفرع المناسب</li>
                 <li><i class="fa-solid fa-circle-check check"></i> تدريب و تطوير</li>
                 <li><i class="fa-solid fa-circle-check check"></i> منح فى المناسبات</li>
             </ul>
             <div class="text-center mt-4">
-                <strong style="font-size:25px;color:var(--red)">JOB HUB</strong>
+                <strong style="font-size:25px;"><span class="novy-brand">Novy</span> Jobs</strong>
                 <div class="small text-muted">وظيفتك أقرب مما تتخيل</div>
             </div>
         </div>
@@ -481,17 +1513,38 @@ footer{
 </section>
 
 </main>
+</div>
+
+<div id="productsPage" style="display:none;">
+<section class="products-section">
+<div class="container">
+    <div class="products-header">
+        <span class="badge-products"><i class="fa-solid fa-box-open ms-1"></i> منتجاتنا</span>
+        <h2>منتجات <span class="novy-brand">Novy</span> Egypt Foods</h2>
+        <p>جودة تلقى بها</p>
+    </div>
+
+    <div class="row g-4" id="productsContainer"></div>
+
+    <div class="text-center mt-5">
+        <button class="btn-job" onclick="showMain()" style="padding: 12px 40px; font-size: 16px;">
+            <i class="fa-solid fa-arrow-right ms-2"></i> العودة للرئيسية
+        </button>
+    </div>
+</div>
+</section>
+</div>
 
 <footer>
 <div class="container text-center">
-    <h3 class="fw-bold text-white">JOB HUB</h3>
+    <h3 class="fw-bold text-white"><span style="color:#fff">Novy</span> Jobs</h3>
     <p class="mb-1">معًا نصنع مستقبلًا أفضل</p>
-    <small>© 2026 Job Hub - جميع الحقوق محفوظة</small>
+    <small>© 2026 Novy Jobs - جميع الحقوق محفوظة</small>
 </div>
 </footer>
 
 <div class="modal fade" id="jobDetailsModal" tabindex="-1">
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-lg modal-dialog-centered">
 <div class="modal-content">
 <div class="modal-header">
 <h5 class="modal-title">تفاصيل الوظيفة</h5>
@@ -501,7 +1554,7 @@ footer{
 </div></div></div>
 
 <div class="modal fade" id="applyModal" tabindex="-1">
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-lg modal-dialog-centered">
 <div class="modal-content">
 <div class="modal-header">
 <h5 class="modal-title">تقديم على الوظيفة</h5>
@@ -514,131 +1567,146 @@ footer{
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// ======= بيانات الفروع =======
-const branchData = {
-    'الشرقية': {
-        address: 'قرية الزنكلون - الزقازيق - الشرقية',
-        manager1: 'حسام جمال',
-        phone1: '01009790908',
-        manager2: 'علاء الطوخى',
-        phone2: '01204237054',
-        whatsapp1: '201009790908',
-        whatsapp2: '201204237054',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.5!3d30.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDMwJzAwLjAiTiAzMcKwMzAnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'وسط الإسكندرية': {
-        address: 'وسط الإسكندرية - الطريق الدائري بجوار دون تون',
-        manager1: 'محمد حمدى',
-        phone1: '01223380023',
-        manager2: 'احمد محروس',
-        phone2: '01030737975',
-        whatsapp1: '201223380023',
-        whatsapp2: '201030737975',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d29.9!3d31.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHDsDEyJzAwLjAiTiAyOcKwNTQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'شرق الإسكندرية': {
-        address: 'شرق الإسكندرية - أول 45 من الدولى امام قصر السنوسى',
-        manager1: 'محمد حمدى',
-        phone1: '01223380023',
-        manager2: 'وليد عبدالرازق',
-        phone2: '01206064600',
-        whatsapp1: '201223380023',
-        whatsapp2: '201206064600',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d29.9!3d31.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHDsDEyJzAwLjAiTiAyOcKwNTQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'غرب الإسكندرية': {
-        address: 'غرب الإسكندرية - سيدي كرير امام منتجع سيدي كرير العسكري',
-        manager1: 'محمد حمدى',
-        phone1: '01223380023',
-        manager2: 'رضا عبدالقادر',
-        phone2: '01280857321',
-        whatsapp1: '201223380023',
-        whatsapp2: '201280857321',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d29.9!3d31.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHDsDEyJzAwLjAiTiAyOcKwNTQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'القاهرة': {
-        address: 'طريق العين السخنة من الدائرة بجوار مدارس النور للغات - القاهرة',
-        manager1: 'احمد عبدالخالق',
-        phone1: '01116363288',
-        manager2: 'ابو بكر احمد',
-        phone2: '01117881779',
-        whatsapp1: '201116363288',
-        whatsapp2: '201117881779',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.4!3d30.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'المنوفية': {
-        address: 'شرانيس بجوار كوبري الخضراوية - قويسنا - المنوفية',
-        manager1: 'عزت السيسى',
-        phone1: '01278836773',
-        manager2: 'حسام جمال',
-        phone2: '01009790908',
-        whatsapp1: '201278836773',
-        whatsapp2: '201009790908',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.1!3d30.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'الدقهلية': {
-        address: 'غرب بجوار موقف طلخا الجديد أمام مدارس المنصورة كوليدچ - المنصورة',
-        manager1: 'حسام جمال',
-        phone1: '01009790908',
-        manager2: 'علاء الطوخى',
-        phone2: '01204237054',
-        whatsapp1: '201009790908',
-        whatsapp2: '201204237054',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.3!3d31.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'الغربية': {
-        address: 'أبو مشهور بجوار كمين دفرة - طنطا - الغربية',
-        manager1: 'حسام جمال',
-        phone1: '01009790908',
-        manager2: 'عزت السيسى',
-        phone2: '01278836773',
-        whatsapp1: '201009790908',
-        whatsapp2: '201278836773',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.0!3d30.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'القليوبية': {
-        address: 'دائرى مسطرد عند ابو عياش - القليوبية',
-        manager1: 'احمد عبدالخالق',
-        phone1: '01116363288',
-        manager2: 'احمد رجب',
-        phone2: '01206590797',
-        whatsapp1: '201116363288',
-        whatsapp2: '201206590797',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.2!3d30.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'الجيزة': {
-        address: 'موقف كرادسة بعد مدرسة ميدل ايست - الجيزة',
-        manager1: 'محمد البدرى',
-        phone1: '01111668826',
-        manager2: 'احمد عبدالخالق',
-        phone2: '01116363288',
-        whatsapp1: '201111668826',
-        whatsapp2: '201116363288',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.1!3d30.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    },
-    'اسيوط': {
-        address: 'شارع منقباد - اسيوط',
-        manager1: 'سامح يوسف',
-        phone1: '01066560819',
-        manager2: 'خالد علي',
-        phone2: '01099887766',
-        whatsapp1: '201066560819',
-        whatsapp2: '201099887766',
-        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.0!3d27.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
-    }
-};
+// ============================================
+// ===== بيانات المنتجات (10 براندات) =========
+// ============================================
+const products = [
+    { id: 1, brand: "Shots", image: "images/products/shots.png" },
+    { id: 2, brand: "Waves", image: "images/products/waves.png" },
+    { id: 3, brand: "Bisk", image: "images/products/bisk.jpg" },
+    { id: 4, brand: "Spaghettios", image: "images/products/spaghettios.png" },
+    { id: 5, brand: "Jenjo", image: "images/products/jenjo.png" },
+    { id: 6, brand: "Marshello", image: "images/products/marshello.png" },
+    { id: 7, brand: "Fingers", image: "images/products/fingers.png" },
+    { id: 8, brand: "Magic", image: "images/products/magic.png" },
+    { id: 9, brand: "Blazo", image: "images/products/blazo.png" },
+    { id: 10, brand: "Torta", image: "images/products/torta.png" }
+];
 
-// ======= بيانات الوظائف =======
+function renderProducts() {
+    const container = document.getElementById('productsContainer');
+    container.innerHTML = products.map(p => `
+        <div class="col-6 col-md-4 col-lg-3">
+            <div class="product-card">
+                <img src="${p.image}" alt="${p.brand}" class="product-image" 
+                     onerror="this.src='https://via.placeholder.com/300x220/cc0000/ffffff?text=${encodeURIComponent(p.brand)}'">
+                <div class="product-body">
+                    <h3 class="product-name">${p.brand}</h3>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+function showProducts() {
+    document.getElementById('mainPage').style.display = 'none';
+    document.getElementById('productsPage').style.display = 'block';
+    renderProducts();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showMain() {
+    document.getElementById('productsPage').style.display = 'none';
+    document.getElementById('mainPage').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================
+// ===== بيانات الوظائف مع الشروط =============
+// ============================================
+const _e = ['M','a','h','m','o','u','d','.','g','a','d','@','e','g','y','p','t','f','o','o','d','s','g','r','o','u','p','.','c','o','m'];
+function getEmail(){ return _e.join(''); }
+
 const jobs=[
-{id:1,title:"مندوب مبيعات",salary:"١١,٦٠٠ - ١٤,٠٠٠ ج",icon:"fa-user-tie",description:"زيارة العملاء، عرض المنتجات، متابعة الطلبات وتحقيق أهداف المبيعات.",branches:["الشرقية","غرب الإسكندرية","الدقهلية","وسط الإسكندرية","شرق الإسكندرية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"]},
-{id:2,title:"مدير فرع",salary:"غير متاح",icon:"fa-building",description:"إدارة الفرع والإشراف على فريق العمل ومتابعة تحقيق الأهداف.",branches:["الشرقية","الغربية","القاهرة"]},
-{id:3,title:"مشرف مبيعات",salary:"غير متاح",icon:"fa-chart-line",description:"الإشراف على فريق المبيعات ومتابعة الأداء والتطوير.",branches:["المنوفية","الدقهلية","الغربية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية"]},
-{id:4,title:"سائق",salary:"١٠,٠٠٠ ج",icon:"fa-truck",description:"توصيل المنتجات والالتزام بمواعيد التسليم.",branches:["الشرقية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية","الدقهلية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"]},
+// 1. مندوب مبيعات
+{
+    id:1,
+    title:"مندوب مبيعات",
+    salary:"١١,٦٠٠ - ١٤,٠٠٠ ج",
+    icon:"fa-user-tie",
+    description:"زيارة العملاء، عرض المنتجات، متابعة الطلبات وتحقيق أهداف المبيعات.",
+    branches:["الشرقية","غرب الإسكندرية","الدقهلية","وسط الإسكندرية","شرق الإسكندرية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
+    applyMethod: "form",
+    requirements: [
+        { text: "وجود رخصة سارية (خاصة - مهنية) - شرط أساسي", type: "essential" },
+        { text: "مؤهل متوسط / عالي", type: "normal" },
+        { text: "موقف واضح من التجنيد (إعفاء نهائي - أدى الخدمة العسكرية)", type: "normal" },
+        { text: "السن لا يزيد عن 40 عام", type: "normal" },
+        { text: "لا نقبل الطلبة", type: "warning" }
+    ]
+},
+// 2. سائق
+{
+    id:4,
+    title:"سائق",
+    salary:"١٠,٠٠٠ ج",
+    icon:"fa-truck",
+    description:"توصيل المنتجات والالتزام بمواعيد التسليم.",
+    branches:["الشرقية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية","الدقهلية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
+    applyMethod: "form",
+    requirements: [
+        { text: "رخصة درجة ثانية", type: "essential" },
+        { text: "موقف واضح من التجنيد (إعفاء نهائي - أدى الخدمة العسكرية)", type: "normal" },
+        { text: "السن لا يزيد عن 48 عام", type: "normal" },
+        { text: "لا نقبل الطلبة", type: "warning" }
+    ]
+},
+// 3. مشرف مبيعات (ترتيب الشروط: مؤهل - خبرة - رخصة قيادة)
+{
+    id:3,
+    title:"مشرف مبيعات",
+    salary:"غير متاح",
+    icon:"fa-chart-line",
+    description:"الإشراف على فريق المبيعات ومتابعة الأداء والتطوير.",
+    branches:["الشرقية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية","الدقهلية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
+    applyMethod: "email",
+    requirements: [
+        { text: "مؤهل عالي", type: "normal" },
+        { text: "خبرة 5 سنوات في مجال FMCG", type: "essential" },
+        { text: "رخصة قيادة خاصة", type: "essential" },
+          ]
+},
+// 4. مدير فرع (ترتيب الشروط: مؤهل - خبرة - سيارة)
+{
+    id:2,
+    title:"مدير فرع",
+    salary:"غير متاح",
+    icon:"fa-building",
+    description:"إدارة الفرع والإشراف على فريق العمل ومتابعة تحقيق الأهداف.",
+    branches:["شرق الإسكندرية","القاهرة"],
+    applyMethod: "email",
+    requirements: [
+        { text: "مؤهل عالي", type: "normal" },
+        { text: "خبرة 10 سنوات في مجال FMCG", type: "essential" },
+        { text: "توافر سيارة", type: "essential" },
+           ]
+},
 ];
 
 let currentGov="all";
+let selectedBranchName = null;
 
-// ======= عرض الوظائف =======
+// ============================================
+// ===== فتح الإيميل مع بيانات الوظيفة والفرع =====
+// ============================================
+function sendCVEmail(jobTitle, branchName) {
+    const email = getEmail();
+    const subject = `التقديم على وظيفة ${jobTitle} - فرع ${branchName}`;
+    const body = `السلام عليكم ورحمة الله وبركاته،
+
+أرغب في التقديم على وظيفة: ${jobTitle}
+الفرع المختار: ${branchName}
+
+مرفق مع هذا الإيميل السيرة الذاتية (CV).
+
+برجاء التكرم بمراجعة الطلب والتواصل معي.
+
+وشكراً جزيلاً،`;
+
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+}
+
 function renderJobs(){
  const search=document.getElementById("searchJob").value.trim();
  const govSelect=document.getElementById("govFilter").value;
@@ -655,70 +1723,180 @@ function renderJobs(){
    container.innerHTML='<div class="col-12"><div class="alert alert-light text-center">لا توجد وظائف مطابقة للبحث.</div></div>';
    return;
  }
- container.innerHTML=result.map(j=>`
- <div class="col-md-6 col-xl-4">
+ 
+ container.innerHTML=result.map(j=>{
+   let applyButton = '';
+   let emailBadge = '';
+   
+   if (j.applyMethod === 'email') {
+       applyButton = `<button class="btn-email" onclick="showJobDetails(${j.id})"><i class="fa-solid fa-envelope"></i> أرسل CV</button>`;
+       emailBadge = '<span class="badge badge-email"><i class="fa-solid fa-envelope"></i> CV بالإيميل</span>';
+   } else {
+       applyButton = `<button class="btn-job" onclick="openApplyForm()"><i class="fa-solid fa-paper-plane"></i> تقدم الآن</button>`;
+   }
+   
+   return `
+ <div class="col-12 col-md-6 col-xl-4">
   <div class="job-card">
-   <div class="d-flex justify-content-between align-items-start mb-3">
+   <div class="job-card-header">
     <div class="job-icon"><i class="fa-solid ${j.icon}"></i></div>
+    ${emailBadge}
    </div>
-   <h5>${j.title}</h5>
-   <p class="job-meta mb-2"><i class="fa-solid fa-location-dot ms-1 text-danger"></i> ${j.branches.join("، ")}</p>
-   <p class="job-meta"><i class="fa-solid fa-money-bill-wave ms-1 text-danger"></i> ${j.salary}</p>
-   <hr>
-   <div class="d-flex gap-2">
-    <button class="btn-job flex-grow-1" onclick="openApplyForm()"><i class="fa-solid fa-paper-plane ms-1"></i> تقدم الآن</button>
-    <button class="btn btn-outline-secondary rounded-pill" onclick="showJobDetails(${j.id})"><i class="fa-solid fa-eye"></i></button>
+   <div class="job-card-body">
+    <h5>${j.title}</h5>
+    
+    <div class="job-info-row branches">
+     <i class="fa-solid fa-store"></i>
+     <span>${j.branches.length} فرع متاح</span>
+    </div>
+    <div class="job-info-row location">
+     <i class="fa-solid fa-location-dot"></i>
+     <span>${j.branches.slice(0, 3).join("، ")}${j.branches.length > 3 ? ' و' + (j.branches.length - 3) + ' أخرى' : ''}</span>
+    </div>
+    <div class="job-info-row salary">
+     <i class="fa-solid fa-money-bill-wave"></i>
+     <span>${j.salary}</span>
+    </div>
+    
+    <div class="job-card-actions">
+     ${applyButton}
+     <button class="btn-details-icon" onclick="showJobDetails(${j.id})" title="التفاصيل">
+      <i class="fa-solid fa-eye"></i>
+     </button>
+    </div>
    </div>
   </div>
- </div>`).join("");
+ </div>`;
+ }).join("");
 }
 
-// ======= عرض تفاصيل الوظيفة مع اختيار الفرع =======
 function showJobDetails(id){
  const j=jobs.find(x=>x.id===id);
  if(!j)return;
 
- let branchOptions = '';
- j.branches.forEach(branch => {
-     branchOptions += `<option value="${branch}">${branch}</option>`;
- });
+ // بناء الشروط
+ let requirementsHTML = '';
+ if (j.requirements && j.requirements.length > 0) {
+     requirementsHTML = `
+     <div class="requirements-box">
+         <h6><i class="fa-solid fa-clipboard-check"></i> شروط الوظيفة</h6>
+         <ul>
+             ${j.requirements.map(req => `
+                 <li class="${req.type === 'warning' ? 'warning' : ''}">
+                     <i class="fa-solid ${req.type === 'essential' ? 'fa-star' : (req.type === 'warning' ? 'fa-circle-exclamation' : 'fa-check')}"></i>
+                     <span>${req.text}</span>
+                 </li>
+             `).join('')}
+         </ul>
+     </div>`;
+ }
+
+ // بناء قسم التقديم
+ let applySectionHTML = '';
+ 
+ if (j.applyMethod === 'email') {
+     // ===== للمدير والمشرف: اختيار الفرع المتاح للوظيفة فقط =====
+     const branchOptions = j.branches.map(b => `<option value="${b}">${b}</option>`).join('');
+     
+     applySectionHTML = `
+     <div class="email-apply-box">
+         <h6><i class="fa-solid fa-envelope"></i> طريقة التقديم</h6>
+         <p>للتقديم على وظيفة <strong>${j.title}</strong>، اختر الفرع المتاح ثم اضغط "إرسال CV".</p>
+         
+         <div class="email-branch-selector">
+             <h6><i class="fa-solid fa-store"></i> اختر الفرع المتاح للوظيفة</h6>
+             <select id="emailBranchSelector" onchange="onEmailBranchChange(${j.id})">
+                 <option value="">-- اختر الفرع --</option>
+                 ${branchOptions}
+             </select>
+             <div class="selected-branch-info" id="selectedBranchInfo">
+                 <i class="fa-solid fa-check-circle"></i>
+                 <span>الفرع المختار: <strong id="selectedBranchName"></strong></span>
+             </div>
+         </div>
+         
+         <button class="btn-send-cv" onclick="sendEmailFromModal(${j.id})" id="emailSendBtn" disabled>
+             <i class="fa-solid fa-paper-plane"></i> إرسال CV بالإيميل
+         </button>
+     </div>`;
+ } else {
+     // ===== للمندوب والسائق: نموذج عادي =====
+     applySectionHTML = `
+     <div class="branch-selector-box mt-3">
+      <h6 class="fw-bold"><i class="fa-solid fa-store me-2" style="color:var(--red);"></i>اختر الفرع المناسب لك</h6>
+      <select class="form-select" id="branchSelector" onchange="updateBranchInfo()">
+       <option value="">-- اختر الفرع --</option>
+       ${j.branches.map(b => `<option value="${b}">${b}</option>`).join('')}
+      </select>
+     </div>
+
+     <div id="branchInfoContainer">
+      <div class="text-center text-muted py-3">
+       <i class="fa-solid fa-arrow-up me-2"></i>اختر فرعاً لعرض التفاصيل
+      </div>
+     </div>
+     
+     <div class="text-center mt-4">
+      <button class="btn-job" onclick="openApplyFormWithBranch()" id="applyBtn" disabled>
+       <i class="fa-solid fa-paper-plane ms-1"></i> تقديم على الوظيفة
+      </button>
+      <button class="btn btn-outline-secondary rounded-pill mt-2" data-bs-dismiss="modal">إغلاق</button>
+     </div>`;
+ }
 
  const content = document.getElementById("jobDetailsContent");
  content.innerHTML = `
  <h3 class="fw-bold">${j.title}</h3>
  <p class="text-muted">${j.description}</p>
  <div class="row g-3 mt-2">
-  <div class="col-md-6"><div class="p-3 bg-light rounded-3"><strong>الراتب</strong><br>${j.salary}</div></div>
-  <div class="col-md-6"><div class="p-3 bg-light rounded-3"><strong>عدد الفروع</strong><br>${j.branches.length} فرع</div></div>
+  <div class="col-12 col-md-6"><div class="p-3 bg-light rounded-3"><strong>الراتب</strong><br>${j.salary}</div></div>
+  <div class="col-12 col-md-6"><div class="p-3 bg-light rounded-3"><strong>عدد الفروع</strong><br>${j.branches.length} فرع</div></div>
  </div>
 
- <div class="branch-selector-box mt-3">
-  <h6 class="fw-bold"><i class="fa-solid fa-store me-2" style="color:var(--red);"></i>اختر الفرع المناسب لك</h6>
-  <select class="form-select" id="branchSelector" onchange="updateBranchInfo()">
-   <option value="">-- اختر الفرع --</option>
-   ${branchOptions}
-  </select>
- </div>
+ ${requirementsHTML}
 
- <div id="branchInfoContainer">
-  <div class="text-center text-muted py-3">
-   <i class="fa-solid fa-arrow-up me-2"></i>اختر فرعاً لعرض التفاصيل
-  </div>
- </div>
-
- <div class="text-center mt-4">
-  <button class="btn-job" onclick="openApplyFormWithBranch()" id="applyBtn" disabled>
-   <i class="fa-solid fa-paper-plane ms-1"></i> تقديم على الوظيفة
-  </button>
-  <button class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">إغلاق</button>
- </div>`;
+ ${applySectionHTML}`;
 
  new bootstrap.Modal(document.getElementById("jobDetailsModal")).show();
 }
 
-// ======= تحديث معلومات الفرع =======
+// ===== لما المستخدم يختار فرع للمدير/المشرف =====
+function onEmailBranchChange(jobId) {
+    const select = document.getElementById('emailBranchSelector');
+    const btn = document.getElementById('emailSendBtn');
+    const infoBox = document.getElementById('selectedBranchInfo');
+    const infoName = document.getElementById('selectedBranchName');
+    
+    if (!select) return;
+    
+    if (select.value) {
+        btn.disabled = false;
+        infoBox.classList.add('show');
+        infoName.textContent = select.value;
+    } else {
+        btn.disabled = true;
+        infoBox.classList.remove('show');
+    }
+}
+
+// ===== إرسال الإيميل للمدير/المشرف =====
+function sendEmailFromModal(jobId) {
+    const select = document.getElementById('emailBranchSelector');
+    const branchName = select ? select.value : '';
+    
+    if (!branchName) {
+        alert('⚠️ من فضلك اختر الفرع أولاً');
+        return;
+    }
+    
+    const job = jobs.find(x => x.id === jobId);
+    if (job) sendCVEmail(job.title, branchName);
+}
+
 function updateBranchInfo(){
  const select = document.getElementById('branchSelector');
+ if (!select) return;
+ 
  const branchName = select.value;
  const container = document.getElementById('branchInfoContainer');
  const applyBtn = document.getElementById('applyBtn');
@@ -728,7 +1906,7 @@ function updateBranchInfo(){
     <div class="text-center text-muted py-3">
      <i class="fa-solid fa-arrow-up me-2"></i>اختر فرعاً لعرض التفاصيل
     </div>`;
-   applyBtn.disabled = true;
+   if (applyBtn) applyBtn.disabled = true;
    return;
  }
 
@@ -775,17 +1953,17 @@ function updateBranchInfo(){
     <iframe src="${branch.location}" allowfullscreen loading="lazy"></iframe>
    </div>
   </div>`;
- applyBtn.disabled = false;
+ if (applyBtn) applyBtn.disabled = false;
 }
 
-// ======= فتح نموذج التقديم =======
 function openApplyForm(){
  new bootstrap.Modal(document.getElementById("applyModal")).show();
 }
 
-// ======= فتح نموذج التقديم مع اختيار الفرع =======
 function openApplyFormWithBranch(){
  const select = document.getElementById('branchSelector');
+ if (!select) return;
+ 
  const branchName = select.value;
  if(!branchName){
    alert('⚠️ من فضلك اختر الفرع أولاً');
@@ -796,16 +1974,298 @@ function openApplyFormWithBranch(){
  new bootstrap.Modal(document.getElementById("applyModal")).show();
 }
 
-// ======= أحداث البحث والفلتر =======
-document.getElementById("searchBtn").addEventListener("click",renderJobs);
-document.getElementById("searchJob").addEventListener("keyup",e=>{if(e.key==="Enter")renderJobs()});
+const branchCoordinates = {
+    'الشرقية': { lat: 30.5877, lng: 31.5020 },
+    'وسط الإسكندرية': { lat: 31.2001, lng: 29.9187 },
+    'شرق الإسكندرية': { lat: 31.2150, lng: 29.9550 },
+    'غرب الإسكندرية': { lat: 31.1000, lng: 29.7500 },
+    'القاهرة': { lat: 30.0444, lng: 31.2357 },
+    'المنوفية': { lat: 30.5560, lng: 31.0100 },
+    'الدقهلية': { lat: 31.0409, lng: 31.3785 },
+    'الغربية': { lat: 30.7865, lng: 31.0000 },
+    'القليوبية': { lat: 30.2000, lng: 31.2500 },
+    'الجيزة': { lat: 30.0131, lng: 31.2089 },
+    'اسيوط': { lat: 27.1809, lng: 31.1837 }
+};
+
+const branchData = {
+    'الشرقية': {
+        address: 'قرية الزنكلون - الزقازيق - الشرقية',
+        manager1: 'حسام جمال', phone1: '01009790908',
+        manager2: 'علاء الطوخى', phone2: '01204237054',
+        whatsapp1: '201009790908', whatsapp2: '201204237054',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.5!3d30.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDMwJzAwLjAiTiAzMcKwMzAnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'وسط الإسكندرية': {
+        address: 'وسط الإسكندرية - الطريق الدائري بجوار دون تون',
+        manager1: 'محمد حمدى', phone1: '01223380023',
+        manager2: 'احمد محروس', phone2: '01030737975',
+        whatsapp1: '201223380023', whatsapp2: '201030737975',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d29.9!3d31.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHDsDEyJzAwLjAiTiAyOcKwNTQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'شرق الإسكندرية': {
+        address: 'شرق الإسكندرية - أول 45 من الدولى امام قصر السنوسى',
+        manager1: 'محمد حمدى', phone1: '01223380023',
+        manager2: 'وليد عبدالرازق', phone2: '01206064600',
+        whatsapp1: '201223380023', whatsapp2: '201206064600',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d29.9!3d31.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHDsDEyJzAwLjAiTiAyOcKwNTQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'غرب الإسكندرية': {
+        address: 'غرب الإسكندرية - سيدي كرير امام منتجع سيدي كرير العسكري',
+        manager1: 'محمد حمدى', phone1: '01223380023',
+        manager2: 'رضا عبدالقادر', phone2: '01280857321',
+        whatsapp1: '201223380023', whatsapp2: '201280857321',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d29.9!3d31.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHDsDEyJzAwLjAiTiAyOcKwNTQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'القاهرة': {
+        address: 'طريق العين السخنة من الدائرة بجوار مدارس النور للغات - القاهرة',
+        manager1: 'احمد عبدالخالق', phone1: '01116363288',
+        manager2: 'ابو بكر احمد', phone2: '01117881779',
+        whatsapp1: '201116363288', whatsapp2: '201117881779',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.4!3d30.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'المنوفية': {
+        address: 'شرانيس بجوار كوبري الخضراوية - قويسنا - المنوفية',
+        manager1: 'عزت السيسى', phone1: '01278836773',
+        manager2: 'حسام جمال', phone2: '01009790908',
+        whatsapp1: '201278836773', whatsapp2: '201009790908',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.1!3d30.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'الدقهلية': {
+        address: 'غرب بجوار موقف طلخا الجديد أمام مدارس المنصورة كوليدچ - المنصورة',
+        manager1: 'حسام جمال', phone1: '01009790908',
+        manager2: 'علاء الطوخى', phone2: '01204237054',
+        whatsapp1: '201009790908', whatsapp2: '201204237054',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.3!3d31.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'الغربية': {
+        address: 'أبو مشهور بجوار كمين دفرة - طنطا - الغربية',
+        manager1: 'حسام جمال', phone1: '01009790908',
+        manager2: 'عزت السيسى', phone2: '01278836773',
+        whatsapp1: '201009790908', whatsapp2: '201278836773',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.0!3d30.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'القليوبية': {
+        address: 'دائرى مسطرد عند ابو عياش - القليوبية',
+        manager1: 'احمد عبدالخالق', phone1: '01116363288',
+        manager2: 'احمد رجب', phone2: '01206590797',
+        whatsapp1: '201116363288', whatsapp2: '201206590797',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.2!3d30.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'الجيزة': {
+        address: 'موقف كرادسة بعد مدرسة ميدل ايست - الجيزة',
+        manager1: 'محمد البدرى', phone1: '01111668826',
+        manager2: 'احمد عبدالخالق', phone2: '01116363288',
+        whatsapp1: '201111668826', whatsapp2: '201116363288',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.1!3d30.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCJF!5e0!3m2!1sar!2seg!4v1234567890'
+    },
+    'اسيوط': {
+        address: 'شارع منقباد - اسيوط',
+        manager1: 'محمد عبدالصمد', phone1: '01066560819',
+        manager2: 'جورج عوض', phone2: '01146403170',
+        whatsapp1: '201066560819', whatsapp2: '201146403170',
+        location: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110885.56231546594!2d31.0!3d27.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCoDAwJzAwLjAiTiAzMcKwMjQnMDAuMCBF!5e0!3m2!1sar!2seg!4v1234567890'
+    }
+};
+
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+}
+
+function findNearestBranch(userLat, userLng, selectedBranch) {
+    let nearest = null, minDistance = Infinity;
+    Object.keys(branchCoordinates).forEach(branchName => {
+        if (branchName === selectedBranch) return;
+        const coords = branchCoordinates[branchName];
+        const distance = calculateDistance(userLat, userLng, coords.lat, coords.lng);
+        if (distance < minDistance) {
+            minDistance = distance;
+            nearest = { name: branchName, distance: distance };
+        }
+    });
+    return nearest;
+}
+
+function showSuggestedBranch() {
+    const select = document.getElementById('govFilter');
+    const selectedBranch = select.value;
+    const container = document.getElementById('suggestedBranchContainer');
+    
+    if (!selectedBranch || selectedBranch === 'all') {
+        container.innerHTML = '';
+        selectedBranchName = null;
+        return;
+    }
+    
+    selectedBranchName = selectedBranch;
+    
+    container.innerHTML = `<div class="suggested-branch"><div class="text-center"><i class="fa-solid fa-spinner fa-spin fa-2x" style="color: var(--red);"></i><p class="mt-3 mb-0">جاري البحث عن أقرب فرع لك...</p></div></div>`;
+    
+    if (!navigator.geolocation) {
+        displaySuggestedBranch(selectedBranch, null, 'المتصفح لا يدعم تحديد الموقع');
+        return;
+    }
+    
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const nearest = findNearestBranch(position.coords.latitude, position.coords.longitude, selectedBranch);
+            displaySuggestedBranch(selectedBranch, nearest);
+        },
+        () => displaySuggestedBranch(selectedBranch, null, 'لم نتمكن من تحديد موقعك'),
+        { timeout: 10000, enableHighAccuracy: true }
+    );
+}
+
+function displaySuggestedBranch(selectedBranch, nearestBranch, errorMsg) {
+    const container = document.getElementById('suggestedBranchContainer');
+    const branch = branchData[selectedBranch];
+    if (!branch) { container.innerHTML = ''; return; }
+    
+    let nearestHTML = '';
+    if (nearestBranch && nearestBranch.distance < 100) {
+        const nearestData = branchData[nearestBranch.name];
+        nearestHTML = `
+            <div class="mt-3 p-3" style="background: #fff3cd; border-radius: 12px; border-right: 4px solid #ffc107;">
+                <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
+                    <i class="fa-solid fa-location-crosshairs" style="color: #ffc107; font-size: 20px;"></i>
+                    <strong style="color: #856404;">💡 فرع أقرب لك: ${nearestBranch.name}</strong>
+                    <span class="badge bg-warning text-dark">${nearestBranch.distance.toFixed(1)} كم</span>
+                </div>
+                <p class="mb-2 small text-muted">${nearestData.address}</p>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="tel:${nearestData.phone1}" class="btn-action call"><i class="fa-solid fa-phone"></i> ${nearestData.phone1}</a>
+                    <a href="https://wa.me/${nearestData.whatsapp1}" target="_blank" class="btn-action whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                    <button class="btn-action" style="background: #234b85; color: white;" onclick="switchToBranch('${nearestBranch.name}')"><i class="fa-solid fa-arrow-left"></i> اختيار هذا الفرع</button>
+                </div>
+            </div>
+        `;
+    } else if (errorMsg) {
+        nearestHTML = `<div class="mt-3 p-2 text-center small text-muted"><i class="fa-solid fa-info-circle"></i> ${errorMsg} - يمكنك الاتصال بالفرع مباشرة</div>`;
+    }
+    
+    container.innerHTML = `
+        <div class="suggested-branch">
+            <div class="d-flex justify-content-between align-items-start flex-wrap">
+                <div>
+                    <span class="suggested-badge"><i class="fa-solid fa-check-circle ms-1"></i> الفرع المختار</span>
+                    <h4><i class="fa-solid fa-store me-2"></i>${selectedBranch}</h4>
+                    <p class="address-text"><i class="fa-solid fa-location-dot me-2" style="color: var(--red);"></i>${branch.address}</p>
+                </div>
+                <button class="close-suggestion" onclick="clearSuggestedBranch()"><i class="fa-solid fa-times"></i> إغلاق</button>
+            </div>
+            
+            <div class="manager-card">
+                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager1}</div>
+                <div class="action-buttons">
+                    <a href="tel:${branch.phone1}" class="btn-action call"><i class="fa-solid fa-phone"></i> ${branch.phone1}</a>
+                    <a href="https://wa.me/${branch.whatsapp1}" target="_blank" class="btn-action whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                </div>
+            </div>
+            
+            <div class="manager-card manager2">
+                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager2}</div>
+                <div class="action-buttons">
+                    <a href="tel:${branch.phone2}" class="btn-action call-green"><i class="fa-solid fa-phone"></i> ${branch.phone2}</a>
+                    <a href="https://wa.me/${branch.whatsapp2}" target="_blank" class="btn-action whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                </div>
+            </div>
+            
+            ${nearestHTML}
+        </div>
+    `;
+}
+
+function displaySuggestedBranchOnly(selectedBranch) {
+    const container = document.getElementById('suggestedBranchContainer');
+    const branch = branchData[selectedBranch];
+    if (!branch) { container.innerHTML = ''; return; }
+    
+    container.innerHTML = `
+        <div class="suggested-branch">
+            <div class="d-flex justify-content-between align-items-start flex-wrap">
+                <div>
+                    <span class="suggested-badge"><i class="fa-solid fa-check-circle ms-1"></i> الفرع المختار</span>
+                    <h4><i class="fa-solid fa-store me-2"></i>${selectedBranch}</h4>
+                    <p class="address-text"><i class="fa-solid fa-location-dot me-2" style="color: var(--red);"></i>${branch.address}</p>
+                </div>
+                <button class="close-suggestion" onclick="clearSuggestedBranch()"><i class="fa-solid fa-times"></i> إغلاق</button>
+            </div>
+            
+            <div class="manager-card">
+                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager1}</div>
+                <div class="action-buttons">
+                    <a href="tel:${branch.phone1}" class="btn-action call"><i class="fa-solid fa-phone"></i> ${branch.phone1}</a>
+                    <a href="https://wa.me/${branch.whatsapp1}" target="_blank" class="btn-action whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                </div>
+            </div>
+            
+            <div class="manager-card manager2">
+                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager2}</div>
+                <div class="action-buttons">
+                    <a href="tel:${branch.phone2}" class="btn-action call-green"><i class="fa-solid fa-phone"></i> ${branch.phone2}</a>
+                    <a href="https://wa.me/${branch.whatsapp2}" target="_blank" class="btn-action whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function switchToBranch(branchName) {
+    document.getElementById('govFilter').value = branchName;
+    selectedBranchName = branchName;
+    displaySuggestedBranchOnly(branchName);
+    renderJobs();
+}
+
+function clearSuggestedBranch() {
+    document.getElementById('suggestedBranchContainer').innerHTML = '';
+    document.getElementById('govFilter').value = 'all';
+    selectedBranchName = null;
+    renderJobs();
+}
+
+document.getElementById("searchBtn").addEventListener("click",()=>{renderJobs();showSuggestedBranch();});
+document.getElementById("searchJob").addEventListener("keyup",e=>{if(e.key==="Enter"){renderJobs();showSuggestedBranch();}});
 document.querySelectorAll(".filter-btn").forEach(b=>b.addEventListener("click",function(){
  document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));
  this.classList.add("active");
  currentGov=this.dataset.gov;
  document.getElementById("govFilter").value="all";
+ document.getElementById('suggestedBranchContainer').innerHTML='';
  renderJobs();
 }));
+
+if ('ontouchstart' in window) {
+    document.body.classList.add('touch-device');
+    document.addEventListener('touchstart', function(e) {
+        if (e.touches.length > 1) e.preventDefault();
+    }, { passive: false });
+}
+
+document.querySelectorAll('.navbar-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('nav');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) bsCollapse.hide();
+        }
+    });
+});
+
+document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('shown.bs.modal', () => {
+        const body = modal.querySelector('.modal-body');
+        if (body) body.scrollTop = 0;
+    });
+});
+
 renderJobs();
 </script>
 </body>
