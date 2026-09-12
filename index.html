@@ -865,6 +865,16 @@ footer {
     width: 25px;
     text-align: center;
 }
+.manager-role {
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 700;
+}
+.manager-role-green {
+    color: #28a745;
+    font-size: 13px;
+    font-weight: 700;
+}
 .map-container-box {
     background: #e8edf2;
     padding: 20px;
@@ -1236,7 +1246,6 @@ footer {
 @media(max-width: 768px) {
     .brand-logo { height: 45px; }
 
-    /* Hero Mobile */
     .hero {
         min-height: 320px;
         background-position: center top;
@@ -1298,7 +1307,6 @@ footer {
         text-shadow: none;
     }
 
-    /* Search Mobile */
     .search-section { margin-top: -40px; }
     .search-panel { padding: 18px; border-radius: 16px; }
     .search-panel .form-select,
@@ -1311,7 +1319,6 @@ footer {
     .search-available { font-size: 13px; gap: 8px; }
     .search-available span { padding: 6px 14px; font-size: 12px; }
 
-    /* Stats Mobile */
     .stats-section { padding: 30px 0 10px; }
     .stats-box {
         grid-template-columns: repeat(2, 1fr);
@@ -1322,14 +1329,12 @@ footer {
     .stat-number { font-size: 28px; }
     .stat-label { font-size: 12px; }
 
-    /* Why Mobile */
     .why-section { padding: 40px 0 20px; }
     .why-section h2 { font-size: 22px; margin-bottom: 30px; }
     .why-icon { width: 75px; height: 75px; font-size: 30px; margin-bottom: 12px; }
     .why-item h5 { font-size: 14px; }
     .why-item p { font-size: 12px; }
 
-    /* Jobs Mobile */
     .jobs-section { padding: 20px 0 30px; }
     .jobs-header h2 { font-size: 19px; }
     .view-all { font-size: 13px; }
@@ -1366,7 +1371,6 @@ footer {
         width: 100%;
     }
 
-    /* Filter Mobile */
     .gov-filter-section { padding: 20px 0 30px; }
     .gov-filter-section h3 { font-size: 18px; margin-bottom: 18px; }
     .gov-pill {
@@ -1374,7 +1378,6 @@ footer {
         font-size: 13px;
     }
 
-    /* CTA Mobile */
     .cta-section { padding: 15px 0 30px; }
     .cta-box {
         padding: 25px 22px;
@@ -1396,12 +1399,10 @@ footer {
         justify-content: center;
     }
 
-    /* About Mobile */
     .about-box { gap: 20px; }
     .about-content h3 { font-size: 22px; }
     .about-content p { font-size: 14px; line-height: 1.8; }
 
-    /* Footer Mobile */
     footer { padding: 35px 0 20px; }
     .footer-logo { height: 50px; }
     .footer-col-title { font-size: 15px; margin-bottom: 15px; }
@@ -1409,7 +1410,6 @@ footer {
     .footer-social a { width: 36px; height: 36px; font-size: 14px; }
     .footer-social-icons a { width: 40px; height: 40px; font-size: 18px; }
 
-    /* Modal Mobile */
     .modal-dialog { margin: 0; max-width: 100%; min-height: 100vh; }
     .modal-content { border-radius: 0; min-height: 100vh; }
     .modal-header {
@@ -1500,7 +1500,6 @@ footer {
 <nav class="navbar">
 <div class="container">
     <a class="navbar-brand" href="#" onclick="showMain(); return false;">
-        <!-- 🖼️ صورة 1: لوجو النافبار -->
         <img src="images/logo.png" class="brand-logo" alt="Novy Egypt Foods">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
@@ -1617,7 +1616,7 @@ footer {
     <div class="container">
         <div class="stats-box">
             <div class="stat-item">
-                <span class="stat-number">+10000</span>
+                <span class="stat-number">+10,000</span>
                 <span class="stat-label">موظف</span>
             </div>
             <div class="stat-item">
@@ -1681,6 +1680,22 @@ footer {
                         <i class="fa-solid fa-hand-holding-dollar"></i>
                     </div>
                     <h5>ضمان 75%<br>من العمولة</h5>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <h5>بيات سيارة مع<br>المندوب</h5>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+                    <h5>العمل في أقرب<br>خط سير للسكن</h5>
                 </div>
             </div>
         </div>
@@ -1762,7 +1777,6 @@ footer {
     <div class="container">
         <div class="about-box">
             <div class="about-image">
-                <!-- 🖼️ صورة 2: صورة العربية -->
                 <img src="images/novy-truck.png" alt="Novy Truck">
             </div>
             <div class="about-content">
@@ -1786,7 +1800,6 @@ footer {
 <section class="products-section">
 <div class="container">
     <div class="products-header">
-        <!-- 🖼️ صورة 3: لوجو صفحة المنتجات -->
         <img src="images/logo.png" class="products-logo" alt="Novy Egypt Foods">
         <span class="badge-products"><i class="fa-solid fa-box-open ms-1"></i> منتجاتنا</span>
         <h2>منتجات <span class="novy-brand">Novy</span> Egypt Foods</h2>
@@ -1811,7 +1824,6 @@ footer {
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-5 col-md-6">
-                <!-- 🖼️ صورة 4: لوجو الفوتر -->
                 <img src="images/logo-white.png" class="footer-logo" alt="Novy">
                 <p class="footer-tagline">معاً نبني مستقبل أفضل</p>
                 <div class="footer-social">
@@ -1843,7 +1855,7 @@ footer {
         </div>
 
         <div class="footer-bottom">
-            © 2025 Novy Egypt - حقوق محفوظة | مرحباً بك من هنا
+            © 2025 Novy Egypt - حقوق محفوظة 
         </div>
     </div>
 </footer>
@@ -1881,7 +1893,6 @@ footer {
 // ============================================
 // ===== بيانات المنتجات ======================
 // ============================================
-// 🖼️ صور المنتجات - غيّر المسار حسب صورتك
 const products = [
     { id: 1, brand: "Shots", image: "images/products/shots.png" },
     { id: 2, brand: "Waves", image: "images/products/waves.png" },
@@ -1930,7 +1941,7 @@ const _e = ['M','a','h','m','o','u','d','.','g','a','d','@','e','g','y','p','t',
 function getEmail(){ return _e.join(''); }
 
 const jobs=[
-// 1. مندوب مبيعات
+// 1. مندوب مبيعات - تقديم مباشر + فرع اختياري
 {
     id:1,
     title:"مندوب مبيعات",
@@ -1941,18 +1952,17 @@ const jobs=[
     applyMethod: "form",
     urgent: true,
     meta: {
-        location: "شركة نوفى - الجيزة",
-        experience: "خبرة 1-3 سنوات"
+        experience: "خبرة من 0 إلى سنتين"
     },
     requirements: [
-        { text: "وجود رخصة سارية (خاصة - مهنية) - شرط أساسي", type: "essential" },
+        { text: "وجود رخصة خاصة سارية - شرط أساسي", type: "essential" },
         { text: "مؤهل متوسط / عالي", type: "normal" },
         { text: "موقف واضح من التجنيد (إعفاء نهائي - أدى الخدمة العسكرية)", type: "normal" },
         { text: "السن لا يزيد عن 40 عام", type: "normal" },
         { text: "لا نقبل الطلبة", type: "warning" }
     ]
 },
-// 2. مشرف مبيعات
+// 2. مشرف مبيعات - اختيار فرع إجباري
 {
     id:2,
     title:"مشرف مبيعات",
@@ -1963,16 +1973,15 @@ const jobs=[
     applyMethod: "email",
     urgent: false,
     meta: {
-        location: "شركة نوفى - الجيزة",
         experience: "خبرة +5 سنوات"
     },
     requirements: [
         { text: "مؤهل عالي", type: "normal" },
         { text: "خبرة 5 سنوات في مجال FMCG", type: "essential" },
-        { text: "رخصة قيادة خاصة", type: "essential" },
+        { text: "رخصة قيادة خاصة", type: "essential" }
     ]
 },
-// 3. سائق توصيل
+// 3. سائق توصيل - تقديم مباشر + فرع اختياري
 {
     id:3,
     title:"سائق توصيل",
@@ -1983,34 +1992,32 @@ const jobs=[
     applyMethod: "form",
     urgent: false,
     meta: {
-        location: "شركة نوفى - الجيزة",
-        experience: "رخصة خاصة"
+        experience: "رخصة درجة ثانية"
     },
     requirements: [
-        { text: "رخصة درجة ثانية", type: "essential" },
+        { text: "رخصة درجة ثانية سارية - شرط أساسي", type: "essential" },
         { text: "موقف واضح من التجنيد (إعفاء نهائي - أدى الخدمة العسكرية)", type: "normal" },
         { text: "السن لا يزيد عن 48 عام", type: "normal" },
         { text: "لا نقبل الطلبة", type: "warning" }
     ]
 },
-// 4. مدير فرع
+// 4. مدير فرع - اختيار فرع إجباري
 {
     id:4,
     title:"مدير فرع",
     salary:"راتب مجزي + عمولات",
     icon:"fa-user-tie",
     description:"إدارة الفرع والإشراف على فريق العمل ومتابعة تحقيق الأهداف.",
-    branches:["الشرقية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية","الدقهلية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
+    branches:["غرب الإسكندرية","القاهرة"],
     applyMethod: "email",
     urgent: false,
     meta: {
-        location: "شركة نوفى - الجيزة",
         experience: "خبرة +10 سنوات"
     },
     requirements: [
         { text: "مؤهل عالي", type: "normal" },
         { text: "خبرة 10 سنوات في مجال FMCG", type: "essential" },
-        { text: "توافر سيارة", type: "essential" },
+        { text: "توافر سيارة", type: "essential" }
     ]
 },
 ];
@@ -2082,7 +2089,6 @@ function renderJobs(){
     ${urgentBadge}
    </div>
    <div class="job-row-meta">
-    <span><i class="fa-solid fa-location-dot"></i> ${j.meta.location}</span>
     <span><i class="fa-solid fa-briefcase"></i> ${j.meta.experience}</span>
     <span><i class="fa-solid fa-money-bill-wave"></i> ${j.salary}</span>
    </div>
@@ -2122,6 +2128,7 @@ function showJobDetails(id){
  let applySectionHTML = '';
  
  if (j.applyMethod === 'email') {
+     // مشرف مبيعات + مدير فرع (إيميل + اختيار فرع إجباري)
      const branchOptions = j.branches.map(b => `<option value="${b}">${b}</option>`).join('');
      
      applySectionHTML = `
@@ -2146,23 +2153,24 @@ function showJobDetails(id){
          </button>
      </div>`;
  } else {
+     // مندوب مبيعات + سائق توصيل (تقديم مباشر + اختيار فرع اختياري)
      applySectionHTML = `
      <div class="branch-selector-box mt-3">
-      <h6 class="fw-bold"><i class="fa-solid fa-store me-2" style="color:var(--red);"></i>اختر الفرع المناسب لك</h6>
-      <select class="form-select" id="branchSelector" onchange="updateBranchInfo()">
-       <option value="">-- اختر الفرع --</option>
+      <h6 class="fw-bold">
+       <i class="fa-solid fa-store me-2" style="color:var(--red);"></i>
+       اختر الفرع (اختياري)
+      </h6>
+      <p class="text-muted small mb-2">اختيار الفرع يساعدنا في توجيهك للفرع الأقرب لك</p>
+      <select class="form-select" id="branchSelector" onchange="updateBranchInfoOptional()">
+       <option value="">-- اختر الفرع (اختياري) --</option>
        ${j.branches.map(b => `<option value="${b}">${b}</option>`).join('')}
       </select>
      </div>
 
-     <div id="branchInfoContainer">
-      <div class="text-center text-muted py-3">
-       <i class="fa-solid fa-arrow-up me-2"></i>اختر فرعاً لعرض التفاصيل
-      </div>
-     </div>
+     <div id="branchInfoContainer"></div>
      
      <div class="text-center mt-4">
-      <button class="btn-apply-row" onclick="openApplyFormWithBranch()" id="applyBtn" disabled style="width:100%;">
+      <button class="btn-apply-row" onclick="openApplyForm()" style="width:100%;">
        <i class="fa-solid fa-paper-plane ms-1"></i> تقديم على الوظيفة
       </button>
       <button class="btn btn-outline-secondary rounded-pill mt-2" data-bs-dismiss="modal">إغلاق</button>
@@ -2216,20 +2224,20 @@ function sendEmailFromModal(jobId) {
     if (job) sendCVEmail(job.title, branchName);
 }
 
-function updateBranchInfo(){
+function openApplyForm(){
+ new bootstrap.Modal(document.getElementById("applyModal")).show();
+}
+
+// دالة عرض معلومات الفرع (اختياري) للمندوب والسائق
+function updateBranchInfoOptional(){
  const select = document.getElementById('branchSelector');
  if (!select) return;
  
  const branchName = select.value;
  const container = document.getElementById('branchInfoContainer');
- const applyBtn = document.getElementById('applyBtn');
 
  if(!branchName || !branchData[branchName]){
-   container.innerHTML = `
-    <div class="text-center text-muted py-3">
-     <i class="fa-solid fa-arrow-up me-2"></i>اختر فرعاً لعرض التفاصيل
-    </div>`;
-   if (applyBtn) applyBtn.disabled = true;
+   container.innerHTML = '';
    return;
  }
 
@@ -2243,7 +2251,7 @@ function updateBranchInfo(){
    </div>
    <div class="info-row">
     <span class="info-icon"><i class="fa-solid fa-user"></i></span>
-    <span><strong>المدير المسؤول 1:</strong> ${branch.manager1}</span>
+    <span><strong>المدير المسؤول 1:</strong> ${branch.manager1} <span class="manager-role">(مدير مبيعات)</span></span>
    </div>
    <div class="info-row">
     <span class="info-icon"><i class="fa-solid fa-phone"></i></span>
@@ -2258,7 +2266,7 @@ function updateBranchInfo(){
    </div>
    <div class="info-row">
     <span class="info-icon"><i class="fa-solid fa-user"></i></span>
-    <span><strong>المدير المسؤول 2:</strong> ${branch.manager2}</span>
+    <span><strong>المدير المسؤول 2:</strong> ${branch.manager2} <span class="manager-role-green">(مدير مبيعات)</span></span>
    </div>
    <div class="info-row" style="border-bottom:1px solid #f0f0f0;">
     <span class="info-icon"><i class="fa-solid fa-phone"></i></span>
@@ -2276,25 +2284,6 @@ function updateBranchInfo(){
     <iframe src="${branch.location}" allowfullscreen loading="lazy"></iframe>
    </div>
   </div>`;
- if (applyBtn) applyBtn.disabled = false;
-}
-
-function openApplyForm(){
- new bootstrap.Modal(document.getElementById("applyModal")).show();
-}
-
-function openApplyFormWithBranch(){
- const select = document.getElementById('branchSelector');
- if (!select) return;
- 
- const branchName = select.value;
- if(!branchName){
-   alert('⚠️ من فضلك اختر الفرع أولاً');
-   return;
- }
- const detailsModal = bootstrap.Modal.getInstance(document.getElementById('jobDetailsModal'));
- if(detailsModal) detailsModal.hide();
- new bootstrap.Modal(document.getElementById("applyModal")).show();
 }
 
 const branchCoordinates = {
@@ -2485,7 +2474,7 @@ function displaySuggestedBranch(selectedBranch, nearestBranch, errorMsg) {
             </div>
             
             <div class="manager-card">
-                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager1}</div>
+                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager1} <span class="manager-role">(مدير مبيعات)</span></div>
                 <div class="action-buttons">
                     <a href="tel:${branch.phone1}" class="btn-action call"><i class="fa-solid fa-phone"></i> ${branch.phone1}</a>
                     <a href="https://wa.me/${branch.whatsapp1}" target="_blank" class="btn-action whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
@@ -2493,7 +2482,7 @@ function displaySuggestedBranch(selectedBranch, nearestBranch, errorMsg) {
             </div>
             
             <div class="manager-card manager2">
-                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager2}</div>
+                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager2} <span class="manager-role-green">(مدير مبيعات)</span></div>
                 <div class="action-buttons">
                     <a href="tel:${branch.phone2}" class="btn-action call-green"><i class="fa-solid fa-phone"></i> ${branch.phone2}</a>
                     <a href="https://wa.me/${branch.whatsapp2}" target="_blank" class="btn-action whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
@@ -2522,7 +2511,7 @@ function displaySuggestedBranchOnly(selectedBranch) {
             </div>
             
             <div class="manager-card">
-                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager1}</div>
+                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager1} <span class="manager-role">(مدير مبيعات)</span></div>
                 <div class="action-buttons">
                     <a href="tel:${branch.phone1}" class="btn-action call"><i class="fa-solid fa-phone"></i> ${branch.phone1}</a>
                     <a href="https://wa.me/${branch.whatsapp1}" target="_blank" class="btn-action whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
@@ -2530,7 +2519,7 @@ function displaySuggestedBranchOnly(selectedBranch) {
             </div>
             
             <div class="manager-card manager2">
-                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager2}</div>
+                <div class="manager-name"><i class="fa-solid fa-user"></i> ${branch.manager2} <span class="manager-role-green">(مدير مبيعات)</span></div>
                 <div class="action-buttons">
                     <a href="tel:${branch.phone2}" class="btn-action call-green"><i class="fa-solid fa-phone"></i> ${branch.phone2}</a>
                     <a href="https://wa.me/${branch.whatsapp2}" target="_blank" class="btn-action whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
