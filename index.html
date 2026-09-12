@@ -10,6 +10,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -18,556 +19,816 @@
     --blue:#234b85;
     --navy:#182b49;
     --gold:#ffc107;
+    --yellow:#FFD700;
     --bg:#f4f6f9;
 }
 *{box-sizing:border-box}
 body{
     margin:0;
-    font-family:"Segoe UI",Tahoma,Arial,sans-serif;
-    background:var(--bg);
+    font-family:'Cairo', "Segoe UI",Tahoma,Arial,sans-serif;
+    background:#fff;
     color:#1f2937;
     -webkit-tap-highlight-color: transparent;
 }
+
+/* ============================================
+   ===== النافبار =============================
+   ============================================ */
 .navbar{
     background:#fff;
-    box-shadow:0 3px 18px rgba(0,0,0,.07);
-    padding:10px 0;
+    padding:15px 0;
     position:sticky;
     top:0;
     z-index:1000;
+    border-bottom: 1px solid #f0f0f0;
 }
-.brand-logo{
-    width:185px;
-    height:58px;
-    object-fit:contain;
+.brand-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
 }
-.nav-link{
-    font-weight:700;
-    color:var(--navy)!important;
-    margin:0 8px;
-}
-.nav-link:hover{color:var(--red)!important}
-.btn-home{
-    background:var(--red);
-    color:#fff!important;
-    border-radius:30px;
-    padding:10px 25px!important;
-}
-.btn-products{
-    background: var(--gold);
-    color: var(--navy)!important;
-    border-radius: 30px;
-    padding: 10px 25px!important;
-    font-weight: 800;
+.navbar-toggler {
     border: none;
-    transition: .3s;
-}
-.btn-products:hover{
-    background: #e0a800;
-    transform: scale(1.05);
-}
-
-/* ===== الهيدر (ديسكتوب/تابلت) ===== */
-.hero{
-    min-height: 650px;
-    display: flex;
-    align-items: flex-start;
-    padding-top: 60px;
-    padding-bottom: 100px;
-    position: relative;
-    overflow: hidden;
-    background:
-      linear-gradient(90deg, rgba(128,0,8,.85), rgba(227,6,19,.75), rgba(35,75,133,.4)),
-      url('images/hero-bg.png') center/cover no-repeat;
-    color:#fff;
-}
-.hero:after{
-    content:"NOVY JOBS";
-    position:absolute;
-    left:-20px;
-    bottom:-35px;
-    font-size:130px;
-    font-weight:900;
-    opacity:.05;
-    letter-spacing:8px;
-    pointer-events: none;
-}
-.hero-content{position:relative;z-index:2;width: 100%;}
-.hero h1{
-    font-size:clamp(38px,5vw,66px);
-    font-weight:900;
-    margin-bottom:15px;
-    text-shadow: 2px 2px 15px rgba(0,0,0,.5);
-}
-.hero p{
-    font-size:22px;
-    max-width:720px;
-    color:#fff;
-    text-shadow: 1px 1px 10px rgba(0,0,0,.5);
-}
-.search-panel{
-    margin-top:35px;
-    padding:22px;
-    border-radius:22px;
-    background:rgba(255,255,255,.97);
-    box-shadow:0 15px 40px rgba(0,0,0,.2);
-}
-.search-panel .form-control,.search-panel .form-select{
-    height:58px;
-    border-radius:14px;
-    border:1px solid #e5e7eb;
-    font-weight:600;
-}
-.btn-search{
-    height:58px;
-    border:none;
-    border-radius:14px;
-    background:var(--red);
-    color:#fff;
-    font-weight:800;
-    width:100%;
-}
-.btn-search:hover{background:var(--red-dark)}
-
-.main{
-    margin-top: 50px;
-    position: relative;
-    z-index: 5;
-}
-
-#suggestedBranchContainer {
-    position: relative;
-    z-index: 100;
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-#suggestedBranchContainer:empty {
-    display: none;
-    margin: 0;
-    padding: 0;
-}
-#suggestedBranchContainer:not(:empty) {
-    display: block;
-}
-
-.featured{
-    background:linear-gradient(120deg,#7d0008,#e30613);
-    border-radius:24px;
-    padding:34px;
-    color:#fff;
-    box-shadow:0 18px 35px rgba(158,0,10,.25);
-    position: relative;
-    z-index: 6;
-}
-.featured-badge{
-    display:inline-block;
-    padding:7px 18px;
-    border:1px solid #ffd34d;
-    color:#ffd34d;
-    border-radius:30px;
-    font-weight:800;
-}
-.featured h2{font-weight:900;margin-top:14px}
-.btn-apply{
-    background:#fff;
-    color:var(--red);
-    border:none;
-    border-radius:30px;
-    padding:13px 35px;
-    font-weight:900;
-    min-width:180px;
-}
-.btn-details{
-    border:1px solid rgba(255,255,255,.7);
-    color:#fff;
-    background:transparent;
-    border-radius:30px;
-    padding:12px 25px;
-    font-weight:700;
-}
-.section-title{
-    color:var(--navy);
-    font-weight:900;
-    margin:45px 0 25px;
-}
-.section-title:after{
-    content:"";
-    display:block;
-    width:60px;height:4px;
-    background:var(--red);
-    border-radius:5px;
-    margin-top:9px;
-}
-
-.interview-banner{
-    background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
-    border-radius: 24px;
-    padding: 0;
-    margin: 30px 0 20px;
+    padding: 5px;
+    font-size: 28px;
     color: var(--navy);
+}
+.navbar-toggler:focus { box-shadow: none; }
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23182b49' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.nav-link {
+    font-weight: 800;
+    color: var(--navy) !important;
+    margin: 0 10px;
+    font-size: 15px;
+}
+.nav-link:hover {
+    color: var(--red) !important;
+}
+
+/* ============================================
+   ===== الهيرو ===============================
+   ============================================ */
+.hero {
     position: relative;
+    min-height: 520px;
     overflow: hidden;
-    box-shadow: 0 10px 35px rgba(227,6,19,.12);
-    border: 2px solid rgba(227,6,19,.08);
-    display: flex;
-    align-items: stretch;
+    background: url('images/hero-bg.png') center/cover no-repeat;
 }
-.interview-banner::before{
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -15%;
-    width: 45%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(227,6,19,.06), transparent 65%);
-    pointer-events: none;
-}
-.interview-banner .interview-side{
-    background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
-    padding: 25px 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-width: 180px;
-    position: relative;
-    overflow: hidden;
-}
-.interview-banner .interview-side::after{
-    content: '';
+.hero-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.15), transparent 60%);
-    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.95) 35%, rgba(255,255,255,.3) 65%, transparent 100%);
 }
-.interview-banner .interview-side i{
-    font-size: 38px;
-    color: #fff;
-    z-index: 1;
+.hero .container {
     position: relative;
-    filter: drop-shadow(0 3px 8px rgba(0,0,0,.2));
+    z-index: 2;
 }
-.interview-banner .interview-side span{
-    color: #fff;
-    font-weight: 900;
-    font-size: 15px;
-    z-index: 1;
-    position: relative;
-    letter-spacing: .5px;
-}
-.interview-banner .interview-body{
-    flex: 1;
-    padding: 22px 28px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 14px;
-    position: relative;
-    z-index: 1;
-}
-.interview-banner .interview-body .title{
-    font-size: 19px;
-    font-weight: 900;
-    color: var(--navy);
+.hero-inner {
+    min-height: 520px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 0;
+    padding: 30px 0;
 }
-.interview-banner .interview-body .title i{
+.hero-text {
+    max-width: 520px;
+}
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.15;
+    margin: 0 0 8px;
+}
+.hero-text h1 .novy-red {
     color: var(--red);
-    font-size: 20px;
+    display: block;
+    font-size: 78px;
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-top: 5px;
 }
-.interview-banner .interview-cards{
+.hero-text .desc {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.7;
+    margin: 15px 0 25px;
+    max-width: 420px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,.5);
+}
+.hero-buttons {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
 }
-.interview-banner .info-chip{
+.btn-hero-outline {
+    background: #fff;
+    color: var(--red);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    border: 2px solid var(--red);
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: #fff;
-    padding: 10px 18px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--navy);
-    border: 1.5px solid rgba(227,6,19,.15);
     transition: .3s;
-    box-shadow: 0 3px 10px rgba(0,0,0,.04);
+    cursor: pointer;
 }
-.interview-banner .info-chip:hover{
+.btn-hero-outline:hover {
+    background: var(--red);
+    color: #fff;
+}
+.btn-hero-red {
+    background: var(--red);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    border: 2px solid var(--red);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: .3s;
+    cursor: pointer;
+}
+.btn-hero-red:hover {
+    background: var(--red-dark);
+    border-color: var(--red-dark);
+    color: #fff;
+}
+.hero-decor {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    text-align: left;
+    z-index: 3;
+}
+.hero-decor .line1 {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--navy);
+    font-style: italic;
+    line-height: 1.2;
+    display: block;
+    transform: rotate(-3deg);
+}
+.hero-decor .line2 {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--navy);
+    font-style: italic;
+    line-height: 1.2;
+    display: block;
+    transform: rotate(-3deg);
+    margin-top: 2px;
+}
+.hero-decor .line2 .gold {
+    color: var(--navy);
+    background: linear-gradient(180deg, transparent 60%, var(--yellow) 60%);
+    padding: 0 5px;
+    display: inline-block;
+}
+
+/* ============================================
+   ===== شريط البحث ===========================
+   ============================================ */
+.search-section {
+    margin-top: -55px;
+    position: relative;
+    z-index: 100;
+}
+.search-panel {
+    background: #fff;
+    border-radius: 20px;
+    padding: 22px 25px;
+    box-shadow: 0 15px 45px rgba(0,0,0,.1);
+    border: 1px solid #f0f0f0;
+}
+.search-panel .form-select,
+.search-panel .form-control {
+    height: 55px;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--navy);
+    padding: 0 20px;
+}
+.search-panel .form-select:focus,
+.search-panel .form-control:focus {
     border-color: var(--red);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(227,6,19,.15);
+    box-shadow: 0 0 0 3px rgba(227,6,19,.1);
 }
-.interview-banner .info-chip .chip-icon{
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #fff1f2, #ffe0e0);
+.btn-search-red {
+    height: 55px;
+    border: none;
+    border-radius: 12px;
+    background: var(--red);
+    color: #fff;
+    font-weight: 800;
+    font-size: 16px;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: .3s;
+}
+.btn-search-red:hover {
+    background: var(--red-dark);
+    color: #fff;
+}
+.search-available {
+    text-align: center;
+    margin-top: 18px;
+    color: #4b5563;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.search-available span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff1f2;
     color: var(--red);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 14px;
+    border: 1.5px solid rgba(227,6,19,.15);
+}
+.search-available span i {
+    color: var(--red);
+}
+
+/* ============================================
+   ===== شريط الإحصائيات ======================
+   ============================================ */
+.stats-section {
+    padding: 45px 0 20px;
+    background: #fff;
+}
+.stats-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    background: linear-gradient(135deg, #fff1f2, #fff);
+    border: 2px solid rgba(227,6,19,.12);
+    border-radius: 22px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.05);
+}
+.stat-item {
+    text-align: center;
+    padding: 10px;
+    position: relative;
+}
+.stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(227,6,19,.15);
+}
+.stat-number {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+}
+.stat-label {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+/* ============================================
+   ===== ليه تنضم =============================
+   ============================================ */
+.why-section {
+    padding: 50px 0 40px;
+    background: #fff;
+}
+.why-section h2 {
+    text-align: center;
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+.why-section h2 .red {
+    color: var(--red);
+}
+.why-item {
+    text-align: center;
+    padding: 15px;
+}
+.why-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #fff1f2, #ffe0e0);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
-    flex-shrink: 0;
-}
-.interview-banner .info-chip strong{
+    margin: 0 auto 20px;
+    font-size: 42px;
     color: var(--red);
+    transition: .3s;
+}
+.why-item:hover .why-icon {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(227,6,19,.2);
+}
+.why-item h5 {
+    font-weight: 800;
+    color: var(--navy);
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+.why-item p {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ============================================
+   ===== الوظائف المتاحة =====================
+   ============================================ */
+.jobs-section {
+    padding: 30px 0 40px;
+    background: #fff;
+}
+.jobs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.jobs-header h2 {
+    color: var(--navy);
     font-weight: 900;
-    margin-right: 3px;
+    font-size: 28px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.jobs-header h2 i {
+    color: var(--red);
+}
+.view-all {
+    color: var(--red);
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: .3s;
+}
+.view-all:hover {
+    color: var(--red-dark);
+    transform: translateX(-5px);
 }
 
-.job-card{
-    height:100%;
-    background:#fff;
-    border-radius:22px;
-    padding:0;
-    overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.07);
-    transition:all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    border:1px solid #eef0f3;
-    position:relative;
-    display:flex;
-    flex-direction:column;
+.job-row {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    margin-bottom: 16px;
+    border: 1px solid #f0f0f0;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
 }
-.job-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 45px rgba(0,0,0,.15);
-    border-color:rgba(227,6,19,.3);
+.job-row:hover {
+    box-shadow: 0 12px 30px rgba(0,0,0,.1);
+    transform: translateY(-3px);
+    border-color: rgba(227,6,19,.15);
 }
-.job-card:hover .job-card-header{
-    background:linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+.job-row-icon {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    background: #fff1f2;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--red);
 }
-.job-card:hover .job-card-header .job-icon{
-    background:rgba(255,255,255,.2);
-    color:#fff;
+.job-row-info {
+    flex: 1;
+    min-width: 220px;
 }
-
-.job-card-header{
-    background:linear-gradient(135deg, #f8f9fa 0%, #eef0f3 100%);
-    padding:20px 22px;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    transition:all 0.35s ease;
-    position:relative;
+.job-row-info .title-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
 }
-.job-card-header::after{
-    content:'';
-    position:absolute;
-    bottom:0;
-    left:0;
-    right:0;
-    height:3px;
-    background:linear-gradient(90deg, var(--red), var(--gold));
-    opacity:0;
-    transition:.3s;
+.job-row-info .title-line h4 {
+    font-weight: 900;
+    color: var(--navy);
+    font-size: 20px;
+    margin: 0;
 }
-.job-card:hover .job-card-header::after{
-    opacity:1;
-}
-
-.job-icon{
-    width:60px;
-    height:60px;
-    display:grid;
-    place-items:center;
-    border-radius:16px;
-    background:#fff;
-    color:var(--red);
-    font-size:26px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-    transition:.35s ease;
-    border:2px solid rgba(227,6,19,.1);
-}
-
-.badge-email {
-    background: linear-gradient(135deg, var(--gold), #ffdb4d) !important;
-    color: var(--navy) !important;
-    font-weight: 800 !important;
-    font-size: 11px !important;
-    padding: 6px 14px !important;
-    border-radius: 20px !important;
+.badge-urgent {
+    background: var(--yellow);
+    color: var(--navy);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 900;
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    box-shadow: 0 3px 10px rgba(255,193,7,.3);
-    animation: pulse-email 2s infinite;
 }
-@keyframes pulse-email {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+.job-row-meta {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 700;
 }
-
-.job-card-body{
-    padding:20px 22px 22px;
-    flex:1;
-    display:flex;
-    flex-direction:column;
+.job-row-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
 }
-
-.job-card h5{
-    font-weight:900;
-    color:var(--navy);
-    font-size:19px;
-    margin-bottom:12px;
-    line-height:1.3;
+.job-row-meta i {
+    color: var(--red);
+    font-size: 14px;
 }
-
-.job-info-row{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:8px 0;
-    color:#4b5563;
-    font-size:13.5px;
-    border-bottom:1px dashed #f0f2f5;
+.job-row-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-width: 280px;
 }
-.job-info-row:last-of-type{
-    border-bottom:none;
+.btn-apply-row {
+    background: var(--red);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+    flex: 1;
 }
-.job-info-row i{
-    width:26px;
-    height:26px;
-    display:grid;
-    place-items:center;
-    background:#fff1f2;
-    color:var(--red);
-    border-radius:8px;
-    font-size:12px;
-    flex-shrink:0;
+.btn-apply-row:hover {
+    background: var(--red-dark);
+    color: #fff;
 }
-.job-info-row.location i{
-    background:#e8f4fd;
-    color:#1976d2;
+.btn-details-row {
+    background: #fff;
+    color: var(--navy);
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: .3s;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
 }
-.job-info-row.salary i{
-    background:#e8f5e9;
-    color:#2e7d32;
-}
-.job-info-row.branches i{
-    background:#fff3e0;
-    color:#ef6c00;
-}
-.job-info-row span{
-    font-weight:600;
-    color:#374151;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    line-height:1.4;
+.btn-details-row:hover {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
 }
 
-.job-card-actions{
-    display:flex;
-    gap:10px;
-    margin-top:auto;
-    padding-top:16px;
-    border-top:2px dashed #f0f2f5;
+/* ============================================
+   ===== الفلتر ===============================
+   ============================================ */
+.gov-filter-section {
+    padding: 30px 0 40px;
 }
-.btn-job{
-    background:linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
-    color:#fff;
-    border:none;
-    border-radius:25px;
-    padding:12px 24px;
-    font-weight:800;
-    font-size:14px;
-    transition:all 0.3s ease;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    box-shadow:0 4px 15px rgba(227,6,19,.25);
-    flex:1;
+.gov-filter-section h3 {
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
-.btn-job:hover{
-    color:#fff;
-    transform:translateY(-2px);
-    box-shadow:0 8px 22px rgba(227,6,19,.4);
+.gov-filter-section h3 i {
+    color: var(--red);
 }
-.btn-email{
-    background:linear-gradient(135deg, var(--gold) 0%, #e0a800 100%);
-    color:var(--navy);
-    border:none;
-    border-radius:25px;
-    padding:12px 24px;
-    font-weight:800;
-    font-size:14px;
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    transition:all 0.3s ease;
-    box-shadow:0 4px 15px rgba(255,193,7,.3);
-    flex:1;
+.gov-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
-.btn-email:hover{
-    background:linear-gradient(135deg, #e0a800 0%, var(--gold) 100%);
-    color:var(--navy);
-    transform:translateY(-2px);
-    box-shadow:0 8px 22px rgba(255,193,7,.5);
+.gov-pill {
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    color: var(--navy);
+    padding: 11px 28px;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+.gov-pill:hover,
+.gov-pill.active {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
 }
 
-.btn-details-icon{
-    background:#fff;
-    border:2px solid #e5e7eb;
-    color:var(--navy);
-    width:50px;
-    height:50px;
-    min-width:50px;
-    border-radius:25px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    font-size:16px;
-    transition:all 0.3s ease;
-    cursor:pointer;
+/* ============================================
+   ===== بانر CTA =============================
+   ============================================ */
+.cta-section {
+    padding: 20px 0 40px;
 }
-.btn-details-icon:hover{
-    background:var(--navy);
-    color:#fff;
-    border-color:var(--navy);
-    transform:translateY(-2px);
-    box-shadow:0 8px 22px rgba(24,43,73,.3);
+.cta-box {
+    background: linear-gradient(135deg, #e30613, #b6000b);
+    border-radius: 22px;
+    padding: 35px 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+.cta-box::before {
+    content: '\f15c';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 150px;
+    opacity: .08;
+    pointer-events: none;
+}
+.cta-left {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    min-width: 300px;
+}
+.cta-left h3 {
+    font-size: 30px;
+    font-weight: 900;
+    margin: 0 0 8px;
+    color: #fff;
+}
+.cta-left p {
+    font-size: 16px;
+    margin: 0 0 15px;
+    color: rgba(255,255,255,.95);
+    font-weight: 600;
+}
+.cta-features {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,.95);
+}
+.cta-features span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.cta-features i {
+    color: var(--yellow);
+}
+.btn-cta-start {
+    background: var(--yellow);
+    color: var(--navy);
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 900;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+.btn-cta-start:hover {
+    background: #fff;
+    color: var(--red);
+    transform: translateY(-3px);
 }
 
-.side-box{
-    background:linear-gradient(145deg,#edf3fb,#fff);
-    border-radius:20px;
-    padding:28px;
-    height:100%;
-    border:1px solid #e2e8f0;
+/* ============================================
+   ===== عن Novy ==============================
+   ============================================ */
+.about-section {
+    padding: 30px 0 50px;
 }
-.side-box h4{font-weight:900;color:var(--navy)}
-.side-box li{padding:9px 0;border-bottom:1px solid #e7ebf0;list-style:none}
-.side-box li:last-child{border:0}
-.check{color:#1f9d55;margin-left:8px}
-.filter-btn{
-    border:1px solid #d8dde5;
-    background:#fff;
-    padding:9px 18px;
-    border-radius:30px;
-    margin:4px;
-    font-weight:700;
+.about-box {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
 }
-.filter-btn.active,.filter-btn:hover{background:var(--red);color:#fff;border-color:var(--red)}
-footer{
-    margin-top:60px;
-    background:var(--navy);
-    color:#cbd5e1;
-    padding:40px 0;
-    border-top:4px solid var(--red);
+.about-image {
+    flex: 1;
+    min-width: 280px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
 }
-.modal-header{background:var(--red);color:#fff}
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.about-content {
+    flex: 1.2;
+    min-width: 280px;
+    padding: 10px;
+}
+.about-content h3 {
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 30px;
+    margin: 0 0 18px;
+}
+.about-content p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 2;
+    margin: 0 0 20px;
+    font-weight: 600;
+}
+.about-link {
+    color: var(--red);
+    font-weight: 900;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    transition: .3s;
+}
+.about-link:hover {
+    color: var(--red-dark);
+    transform: translateX(-8px);
+}
+
+/* ============================================
+   ===== الفوتر ===============================
+   ============================================ */
+footer {
+    background: var(--navy);
+    color: #cbd5e1;
+    padding: 50px 0 20px;
+}
+.footer-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 18px;
+}
+.footer-tagline {
+    color: #cbd5e1;
+    font-size: 15px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.footer-social {
+    display: flex;
+    gap: 12px;
+}
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: .3s;
+}
+.footer-social a:hover {
+    background: var(--red);
+    transform: translateY(-3px);
+}
+.footer-col-title {
+    color: #fff;
+    font-weight: 900;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links li {
+    padding: 6px 0;
+}
+.footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
+.footer-links a:hover {
+    color: var(--red);
+}
+
+/* === أيقونات السوشيال في قسم "تابعنا" === */
+.footer-social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 5px;
+}
+.footer-social-icons a {
+    width: 45px;
+    height: 45px;
+    background: rgba(255,255,255,.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    transition: .3s;
+}
+.footer-social-icons a:hover {
+    background: var(--red);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(227,6,19,.4);
+}
+.footer-social-icons a i {
+    pointer-events: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.08);
+    margin-top: 35px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #8898aa;
+}
+
+/* ============================================
+   ===== المودال ==============================
+   ============================================ */
+.modal-header{background:var(--red);color:#fff;border-radius:20px 20px 0 0}
 .modal-header .btn-close{filter:brightness(0) invert(1)}
+.modal-content{border-radius:20px;border:none}
 
 .branch-selector-box {
     background: #f8f9fa;
@@ -656,11 +917,7 @@ footer{
     align-items: center;
     gap: 5px;
 }
-.btn-call:hover {
-    background: var(--red-dark);
-    color: #fff;
-    transform: scale(1.05);
-}
+.btn-call:hover { background: var(--red-dark); color: #fff; }
 .btn-call-green {
     background: #28a745;
     color: #fff;
@@ -675,11 +932,7 @@ footer{
     align-items: center;
     gap: 5px;
 }
-.btn-call-green:hover {
-    background: #1e7e34;
-    color: #fff;
-    transform: scale(1.05);
-}
+.btn-call-green:hover { background: #1e7e34; color: #fff; }
 .btn-whatsapp {
     background: #25D366;
     color: #fff;
@@ -694,11 +947,7 @@ footer{
     align-items: center;
     gap: 5px;
 }
-.btn-whatsapp:hover {
-    background: #1da851;
-    color: #fff;
-    transform: scale(1.05);
-}
+.btn-whatsapp:hover { background: #1da851; color: #fff; }
 
 .suggested-branch {
     background: linear-gradient(135deg, #fff9e6, #fff);
@@ -710,6 +959,7 @@ footer{
     position: relative;
     z-index: 101;
     color: #333;
+    margin-bottom: 20px;
 }
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-20px); }
@@ -743,28 +993,16 @@ footer{
     margin-bottom: 10px;
     border-right: 4px solid var(--red);
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    transition: .3s;
 }
-.suggested-branch .manager-card:hover {
-    transform: translateX(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-.suggested-branch .manager-card.manager2 {
-    border-right-color: #28a745;
-}
+.suggested-branch .manager-card.manager2 { border-right-color: #28a745; }
 .suggested-branch .manager-name {
     font-weight: 800;
     color: var(--navy);
     font-size: 16px;
     margin-bottom: 5px;
 }
-.suggested-branch .manager-name i {
-    color: var(--red);
-    margin-left: 8px;
-}
-.suggested-branch .manager-card.manager2 .manager-name i {
-    color: #28a745;
-}
+.suggested-branch .manager-name i { color: var(--red); margin-left: 8px; }
+.suggested-branch .manager-card.manager2 .manager-name i { color: #28a745; }
 .suggested-branch .action-buttons {
     display: flex;
     gap: 8px;
@@ -784,30 +1022,9 @@ footer{
     gap: 5px;
     cursor: pointer;
 }
-.suggested-branch .btn-action.call {
-    background: var(--red);
-    color: #fff;
-}
-.suggested-branch .btn-action.call:hover {
-    background: var(--red-dark);
-    transform: scale(1.05);
-}
-.suggested-branch .btn-action.whatsapp {
-    background: #25D366;
-    color: #fff;
-}
-.suggested-branch .btn-action.whatsapp:hover {
-    background: #1da851;
-    transform: scale(1.05);
-}
-.suggested-branch .btn-action.call-green {
-    background: #28a745;
-    color: #fff;
-}
-.suggested-branch .btn-action.call-green:hover {
-    background: #1e7e34;
-    transform: scale(1.05);
-}
+.suggested-branch .btn-action.call { background: var(--red); color: #fff; }
+.suggested-branch .btn-action.whatsapp { background: #25D366; color: #fff; }
+.suggested-branch .btn-action.call-green { background: #28a745; color: #fff; }
 .close-suggestion {
     background: transparent;
     border: 1px solid #ddd;
@@ -817,10 +1034,6 @@ footer{
     font-weight: 600;
     color: #666;
     cursor: pointer;
-    transition: .3s;
-}
-.close-suggestion:hover {
-    background: #f0f0f0;
 }
 
 .requirements-box {
@@ -839,14 +1052,8 @@ footer{
     align-items: center;
     gap: 8px;
 }
-.requirements-box h6 i {
-    color: var(--gold);
-}
-.requirements-box ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+.requirements-box h6 i { color: var(--gold); }
+.requirements-box ul { margin: 0; padding: 0; list-style: none; }
 .requirements-box ul li {
     padding: 7px 0;
     font-size: 14px;
@@ -857,9 +1064,7 @@ footer{
     line-height: 1.6;
     border-bottom: 1px dashed #f0e6c8;
 }
-.requirements-box ul li:last-child {
-    border-bottom: none;
-}
+.requirements-box ul li:last-child { border-bottom: none; }
 .requirements-box ul li i {
     color: #28a745;
     margin-top: 5px;
@@ -868,13 +1073,8 @@ footer{
     width: 16px;
     text-align: center;
 }
-.requirements-box ul li.warning i {
-    color: #dc3545;
-}
-.requirements-box ul li.warning {
-    color: #b6000b;
-    font-weight: 600;
-}
+.requirements-box ul li.warning i { color: #dc3545; }
+.requirements-box ul li.warning { color: #b6000b; font-weight: 600; }
 
 .email-apply-box {
     background: #fff9e6;
@@ -891,21 +1091,9 @@ footer{
     align-items: center;
     gap: 8px;
 }
-.email-apply-box h6 i {
-    color: var(--gold);
-}
-.email-apply-box p {
-    color: #666;
-    font-size: 13px;
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
-.email-box-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
+.email-apply-box h6 i { color: var(--gold); }
+.email-apply-box p { color: #666; font-size: 13px; margin-bottom: 15px; line-height: 1.6; }
+.email-box-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .btn-send-cv {
     background: var(--navy);
     color: #fff;
@@ -920,20 +1108,10 @@ footer{
     justify-content: center;
     gap: 8px;
     font-size: 15px;
-    box-shadow: 0 4px 15px rgba(24,43,73,.25);
     width: 100%;
 }
-.btn-send-cv:hover {
-    background: var(--red);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(227,6,19,.35);
-}
-.btn-send-cv:disabled {
-    opacity: .5;
-    cursor: not-allowed;
-    transform: none !important;
-}
+.btn-send-cv:hover { background: var(--red); color: #fff; }
+.btn-send-cv:disabled { opacity: .5; cursor: not-allowed; }
 
 .email-branch-selector {
     background: #fff;
@@ -951,9 +1129,7 @@ footer{
     align-items: center;
     gap: 8px;
 }
-.email-branch-selector h6 i {
-    color: var(--red);
-}
+.email-branch-selector h6 i { color: var(--red); }
 .email-branch-selector select {
     border: 2px solid var(--red);
     border-radius: 10px;
@@ -962,10 +1138,6 @@ footer{
     font-size: 15px;
     font-weight: 600;
     background: #fff;
-}
-.email-branch-selector select:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(227,6,19,.15);
 }
 .selected-branch-info {
     margin-top: 12px;
@@ -980,23 +1152,14 @@ footer{
     color: #2e7d32;
     font-weight: 700;
 }
-.selected-branch-info.show {
-    display: flex;
-}
-.selected-branch-info i {
-    color: #28a745;
-    font-size: 18px;
-}
+.selected-branch-info.show { display: flex; }
+.selected-branch-info i { color: #28a745; font-size: 18px; }
 
-.products-section {
-    padding: 60px 0 40px;
-    background: linear-gradient(180deg, #f8f9fa, #fff);
-    min-height: 100vh;
-}
-.products-header {
-    text-align: center;
-    margin-bottom: 45px;
-}
+/* ============================================
+   ===== صفحة المنتجات =======================
+   ============================================ */
+.products-section { padding: 60px 0 40px; background: #fff; min-height: 100vh; }
+.products-header { text-align: center; margin-bottom: 45px; }
 .products-header .badge-products {
     display: inline-block;
     background: var(--red);
@@ -1007,22 +1170,17 @@ footer{
     font-size: 14px;
     margin-bottom: 15px;
 }
-.products-header h2 {
-    color: var(--navy);
-    font-weight: 900;
-    font-size: 42px;
-    margin-bottom: 10px;
+.products-header .products-logo {
+    height: 100px;
+    width: auto;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-.products-header p {
-    color: #666;
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-.products-header h2 span {
-    color: var(--red);
-}
-
+.products-header h2 { color: var(--navy); font-weight: 900; font-size: 42px; margin-bottom: 10px; }
+.products-header p { color: #666; font-size: 18px; max-width: 600px; margin: 0 auto; }
+.products-header h2 span { color: var(--red); }
 .product-card {
     background: white;
     border-radius: 20px;
@@ -1032,224 +1190,199 @@ footer{
     height: 100%;
     border: 1px solid #eef0f3;
     cursor: pointer;
-    position: relative;
 }
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,.15);
-    border-color: var(--red);
-}
+.product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,.15); border-color: var(--red); }
 .product-card .product-image {
     width: 100%;
     height: 220px;
     object-fit: contain;
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     padding: 20px;
-    transition: .3s;
 }
-.product-card:hover .product-image {
-    background: linear-gradient(135deg, #fff5f5, #ffe0e0);
-}
-.product-card .product-body {
-    padding: 18px 20px 22px;
-    text-align: center;
-}
+.product-card .product-body { padding: 18px 20px 22px; text-align: center; }
 .product-card .product-name {
     font-weight: 900;
     color: var(--red);
     font-size: 24px;
     letter-spacing: 1px;
     margin: 0;
-    text-transform: uppercase;
 }
-
-.novy-brand {
-    color: var(--red);
-    font-weight: 900;
-}
-
-/* ============================================
-   ===== Responsive - Tablet ==================
-   ============================================ */
-@media(max-width: 992px) {
-    .hero { min-height: 580px; padding-top: 50px; padding-bottom: 70px; }
-    .hero h1 { font-size: 42px; }
-    .hero p { font-size: 18px; }
-}
+.novy-brand { color: var(--red); font-weight: 900; }
 
 /* ============================================
    ===== Responsive - Mobile ==================
    ============================================ */
-@media(max-width: 768px) {
-    .navbar { padding: 8px 0; }
-    .brand-logo { width: 130px; height: 45px; }
-    .navbar-toggler {
-        padding: 8px 12px;
-        border: 2px solid var(--red);
-        border-radius: 8px;
-    }
-    .navbar-collapse {
-        background: white;
-        border-radius: 15px;
-        padding: 15px;
-        margin-top: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,.1);
-    }
-    .nav-link {
-        padding: 12px 15px !important;
-        border-radius: 10px;
-        margin: 3px 0 !important;
-        font-size: 15px;
-        text-align: center;
-    }
-    .nav-link:hover { background: #f8f9fa; }
-    .btn-home, .btn-products {
-        padding: 12px 20px !important;
-        display: block;
-        text-align: center;
-        margin: 5px 0 !important;
-    }
+@media(max-width: 992px) {
+    .hero { min-height: auto; }
+    .hero-inner { min-height: 400px; padding: 30px 0 50px; }
+    .hero-text h1 { font-size: 36px; }
+    .hero-text h1 .novy-red { font-size: 58px; }
+    .hero-text .desc { font-size: 16px; }
+    .hero-decor .line1, .hero-decor .line2 { font-size: 20px; }
+    .why-section h2 { font-size: 28px; }
+    .jobs-header h2 { font-size: 22px; }
+    .cta-left h3 { font-size: 24px; }
+    .about-content h3 { font-size: 24px; }
+    .brand-logo { height: 50px; }
+    .job-row-actions { min-width: 100%; }
+    .stats-box { grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 22px 15px; }
+    .stat-number { font-size: 32px; }
+    .stat-label { font-size: 13px; }
+}
 
-    /* ===== الهيدر على الموبايل ===== */
+@media(max-width: 768px) {
+    .brand-logo { height: 45px; }
+
+    /* Hero Mobile */
     .hero {
         min-height: auto;
-        padding-top: 40px;
-        padding-bottom: 60px;
-        position: relative;
-        background: linear-gradient(135deg, rgba(128,0,8,.92), rgba(227,6,19,.82), rgba(35,75,133,.65));
-        background-attachment: scroll;
-        overflow: hidden;
+        background-position: center top;
     }
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('images/hero-bg.png') center center / contain no-repeat;
-        opacity: 0.35;
-        z-index: 0;
-        pointer-events: none;
+    .hero-overlay {
+        background: linear-gradient(180deg, rgba(255,255,255,.85) 0%, rgba(255,255,255,.95) 50%, #fff 100%);
     }
-    .hero-content {
-        position: relative;
-        z-index: 2;
+    .hero-inner {
+        min-height: auto;
+        padding: 50px 0 70px;
     }
-    .hero:after { font-size: 60px; bottom: -15px; opacity: .06; }
-    .hero h1 { font-size: 28px; line-height: 1.3; margin-bottom: 12px; }
-    .hero p { font-size: 16px; line-height: 1.6; }
-    .hero .badge { font-size: 12px; padding: 6px 14px !important; }
+    .hero-text {
+        max-width: 100%;
+        text-align: center;
+        margin-top: 200px;
+    }
+    .hero-text h1 { font-size: 28px; line-height: 1.2; }
+    .hero-text h1 .novy-red { font-size: 52px; letter-spacing: -2px; }
+    .hero-text .desc { font-size: 15px; margin: 12px auto 20px; }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .btn-hero-outline, .btn-hero-red {
+        padding: 11px 20px;
+        font-size: 13px;
+        flex: 1;
+        min-width: 140px;
+        justify-content: center;
+    }
+    .hero-decor {
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        text-align: center;
+    }
+    .hero-decor .line1, .hero-decor .line2 { font-size: 18px; }
 
-    .search-panel {
-        padding: 15px;
-        border-radius: 18px;
-        margin-top: 25px;
-    }
-    .search-panel .row > div {
+    /* Search Mobile */
+    .search-section { margin-top: -40px; }
+    .search-panel { padding: 18px; border-radius: 16px; }
+    .search-panel .form-select,
+    .search-panel .form-control,
+    .btn-search-red {
+        height: 50px;
+        font-size: 14px;
         margin-bottom: 10px;
     }
-    .search-panel .form-control,
-    .search-panel .form-select {
-        height: 52px;
-        font-size: 15px;
-        padding: 12px 15px;
-        border-radius: 12px;
-    }
-    .btn-search {
-        height: 52px;
-        font-size: 16px;
-        font-weight: 800;
-        border-radius: 12px;
-    }
+    .search-available { font-size: 13px; gap: 8px; }
+    .search-available span { padding: 6px 14px; font-size: 12px; }
 
-    .interview-banner {
-        flex-direction: column;
-        border-radius: 18px;
-        margin: 20px 0 15px;
+    /* Stats Mobile */
+    .stats-section { padding: 30px 0 10px; }
+    .stats-box {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px 12px;
     }
-    .interview-banner .interview-side {
+    .stat-item:not(:last-child)::after { display: none; }
+    .stat-number { font-size: 28px; }
+    .stat-label { font-size: 12px; }
+
+    /* Why Mobile */
+    .why-section { padding: 40px 0 20px; }
+    .why-section h2 { font-size: 22px; margin-bottom: 30px; }
+    .why-icon { width: 75px; height: 75px; font-size: 30px; margin-bottom: 12px; }
+    .why-item h5 { font-size: 14px; }
+    .why-item p { font-size: 12px; }
+
+    /* Jobs Mobile */
+    .jobs-section { padding: 20px 0 30px; }
+    .jobs-header h2 { font-size: 19px; }
+    .view-all { font-size: 13px; }
+    .job-row {
         padding: 18px;
-        flex-direction: row;
-        gap: 12px;
-        min-width: auto;
-        justify-content: center;
+        gap: 15px;
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
     }
-    .interview-banner .interview-side i {
+    .job-row-icon {
+        width: 60px;
+        height: 60px;
         font-size: 26px;
+        margin: 0 auto;
     }
-    .interview-banner .interview-side span {
-        font-size: 14px;
-    }
-    .interview-banner .interview-body {
-        padding: 18px;
-        gap: 10px;
-    }
-    .interview-banner .interview-body .title {
-        font-size: 16px;
+    .job-row-info .title-line {
         justify-content: center;
     }
-    .interview-banner .interview-body .title i {
-        font-size: 17px;
-    }
-    .interview-banner .interview-cards {
-        flex-direction: column;
-        gap: 8px;
-    }
-    .interview-banner .info-chip {
-        width: 100%;
-        justify-content: flex-start;
-        padding: 11px 14px;
-        font-size: 13px;
-    }
-    .interview-banner .info-chip .chip-icon {
-        width: 30px;
-        height: 30px;
+    .job-row-info .title-line h4 { font-size: 17px; }
+    .job-row-meta {
+        justify-content: center;
+        gap: 15px;
         font-size: 12px;
     }
-
-    .main { margin-top: 30px; }
-    .featured {
-        padding: 22px 20px;
-        border-radius: 18px;
+    .job-row-actions {
+        flex-direction: column;
+        min-width: 100%;
+        gap: 8px;
     }
-    .featured-badge { font-size: 12px; padding: 5px 14px; }
-    .featured h2 { font-size: 24px; margin-top: 10px; }
-    .featured p { font-size: 14px; line-height: 1.6; }
-    .featured .d-flex span { font-size: 13px; }
-    .btn-apply, .btn-details {
+    .btn-apply-row, .btn-details-row {
+        padding: 12px 24px;
+        font-size: 14px;
         width: 100%;
-        padding: 14px 20px;
-        font-size: 15px;
-        margin: 5px 0 !important;
     }
 
-    .section-title {
-        font-size: 22px;
-        margin: 30px 0 18px;
+    /* Filter Mobile */
+    .gov-filter-section { padding: 20px 0 30px; }
+    .gov-filter-section h3 { font-size: 18px; margin-bottom: 18px; }
+    .gov-pill {
+        padding: 9px 20px;
+        font-size: 13px;
     }
-    .section-title:after { width: 50px; height: 3px; }
 
-    .job-card-header{ padding: 18px 18px; }
-    .job-icon { width: 52px; height: 52px; font-size: 22px; border-radius: 14px; }
-    .job-card-body{ padding: 18px 18px 20px; }
-    .job-card h5 { font-size: 17px; margin-bottom: 12px; }
-    .job-info-row{ font-size: 13px; padding: 7px 0; }
-    .job-info-row i{ width: 24px; height: 24px; font-size: 11px; }
-    .job-card-actions{ padding-top: 14px; gap: 8px; }
-    .btn-job, .btn-email { padding: 13px 18px; font-size: 14px; min-height: 50px; border-radius: 25px; }
-    .btn-details-icon { min-width: 50px; min-height: 50px; width: 50px; height: 50px; }
+    /* CTA Mobile */
+    .cta-section { padding: 15px 0 30px; }
+    .cta-box {
+        padding: 25px 22px;
+        text-align: center;
+        flex-direction: column;
+    }
+    .cta-box::before { display: none; }
+    .cta-left h3 { font-size: 20px; }
+    .cta-left p { font-size: 14px; }
+    .cta-features {
+        justify-content: center;
+        gap: 12px;
+        font-size: 12px;
+    }
+    .btn-cta-start {
+        padding: 13px 25px;
+        font-size: 14px;
+        width: 100%;
+        justify-content: center;
+    }
 
-    .side-box { padding: 20px; margin-top: 25px; }
-    .side-box h4 { font-size: 18px; }
-    .side-box li { font-size: 14px; padding: 8px 0; }
+    /* About Mobile */
+    .about-box { gap: 20px; }
+    .about-content h3 { font-size: 22px; }
+    .about-content p { font-size: 14px; line-height: 1.8; }
 
-    .filter-btn { padding: 10px 16px; font-size: 13px; margin: 3px; min-height: 42px; }
+    /* Footer Mobile */
+    footer { padding: 35px 0 20px; }
+    .footer-logo { height: 50px; }
+    .footer-col-title { font-size: 15px; margin-bottom: 15px; }
+    .footer-links a { font-size: 13px; }
+    .footer-social a { width: 36px; height: 36px; font-size: 14px; }
+    .footer-social-icons a { width: 40px; height: 40px; font-size: 18px; }
 
-    footer { padding: 30px 0; margin-top: 40px; }
-    footer h3 { font-size: 22px; }
-    footer p, footer small { font-size: 13px; }
-
+    /* Modal Mobile */
     .modal-dialog { margin: 0; max-width: 100%; min-height: 100vh; }
     .modal-content { border-radius: 0; min-height: 100vh; }
     .modal-header {
@@ -1261,21 +1394,6 @@ footer{
     }
     .modal-header .modal-title { font-size: 16px; font-weight: 800; }
     .modal-body { padding: 18px 15px; font-size: 14px; }
-
-    .branch-selector-box { padding: 15px; border-radius: 12px; }
-    .branch-selector-box h6 { font-size: 14px; margin-bottom: 10px; }
-    .branch-selector-box select { padding: 12px; font-size: 15px; min-height: 50px; }
-    .branch-info-box { padding: 15px; border-radius: 12px; }
-    .branch-info-box h6 { font-size: 14px; }
-    .branch-info-box .info-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-        padding: 10px 0;
-        font-size: 13px;
-    }
-    .branch-info-box .info-icon { font-size: 14px; margin-bottom: 3px; }
-
     .phone-row { width: 100%; gap: 8px; flex-direction: row; flex-wrap: wrap; }
     .phone-row .phone-item {
         flex: 1;
@@ -1293,101 +1411,62 @@ footer{
         min-height: 46px;
         justify-content: center;
     }
-
-    .requirements-box { padding: 15px; border-radius: 12px; }
-    .requirements-box h6 { font-size: 15px; margin-bottom: 12px; }
-    .requirements-box ul li { font-size: 13px; padding: 8px 0; line-height: 1.6; }
-
-    .email-apply-box { padding: 15px; border-radius: 12px; }
-    .email-apply-box h6 { font-size: 15px; }
-    .email-apply-box p { font-size: 13px; line-height: 1.6; }
-    .email-box-row { flex-direction: column; align-items: stretch; gap: 10px; }
-    .btn-send-cv {
-        width: 100%;
-        justify-content: center;
-        padding: 14px 20px;
-        font-size: 15px;
-        min-height: 50px;
-    }
-
-    .email-branch-selector { padding: 15px; }
-    .email-branch-selector h6 { font-size: 13px; }
-    .email-branch-selector select { padding: 10px; font-size: 14px; }
-    .selected-branch-info { font-size: 13px; padding: 10px 12px; }
-
-    .map-container-box { padding: 12px; }
     .map-container-box iframe { height: 200px; }
-
-    .badge-email { font-size: 10px !important; padding: 5px 11px !important; }
-
-    .products-section { padding: 30px 0; }
-    .products-header h2 { font-size: 22px; }
-    .products-header p { font-size: 14px; padding: 0 15px; }
-    .product-card .product-image { height: 140px; padding: 12px; }
-    .product-card .product-name { font-size: 16px; }
-    .product-card .product-body { padding: 12px 10px 15px; }
-
-    .suggested-branch { padding: 18px 15px; border-radius: 16px; }
-    .suggested-branch .suggested-badge { font-size: 12px; padding: 4px 14px; }
+    .suggested-branch { padding: 18px 15px; }
     .suggested-branch h4 { font-size: 20px; }
-    .suggested-branch .address-text { font-size: 14px; line-height: 1.5; }
-    .suggested-branch .manager-card { padding: 12px; }
-    .suggested-branch .manager-name { font-size: 15px; }
     .suggested-branch .action-buttons { flex-direction: column; gap: 6px; }
     .suggested-branch .btn-action {
         width: 100%;
         justify-content: center;
         padding: 12px 18px;
-        font-size: 14px;
-        min-height: 46px;
     }
-    .close-suggestion { padding: 8px 16px; font-size: 12px; }
+    .requirements-box { padding: 15px; }
+    .requirements-box ul li { font-size: 13px; }
+    .email-apply-box { padding: 15px; }
+    .email-box-row { flex-direction: column; align-items: stretch; }
+    .btn-send-cv { padding: 14px 20px; font-size: 15px; }
+    .email-branch-selector { padding: 15px; }
+    .email-branch-selector select { padding: 10px; font-size: 14px; }
 
-    .container { padding-left: 12px; padding-right: 12px; }
-    button, a, .btn-job, .btn-email, .btn-call, .btn-whatsapp, .filter-btn {
-        -webkit-tap-highlight-color: transparent;
-        cursor: pointer;
-    }
+    .products-section { padding: 30px 0; }
+    .products-header .products-logo { height: 70px; }
+    .products-header h2 { font-size: 22px; }
+    .products-header p { font-size: 14px; padding: 0 15px; }
+    .product-card .product-image { height: 140px; padding: 12px; }
+    .product-card .product-name { font-size: 16px; }
+    .product-card .product-body { padding: 12px 10px 15px; }
 }
 
-/* ============================================
-   ===== Responsive - Small Mobile ============
-   ============================================ */
 @media(max-width: 480px) {
-    .hero {
-        min-height: auto;
-        padding-top: 35px;
-        padding-bottom: 50px;
-    }
-    .hero::before {
-        opacity: 0.28;
-        background-position: center center;
-    }
-    .hero h1 { font-size: 24px; }
-    .hero p { font-size: 15px; }
-    .featured h2 { font-size: 20px; }
-    .section-title { font-size: 19px; }
-    .job-card h5 { font-size: 16px; }
-    .btn-job, .btn-email { font-size: 13px; padding: 12px 14px; }
-    .product-card .product-image { height: 120px; }
-    .product-card .product-name { font-size: 14px; }
-    .filter-btn { font-size: 12px; padding: 8px 12px; }
+    .brand-logo { height: 40px; }
+    .hero-text { margin-top: 180px; }
+    .hero-text h1 { font-size: 24px; }
+    .hero-text h1 .novy-red { font-size: 44px; }
+    .hero-text .desc { font-size: 13px; }
+    .btn-hero-outline, .btn-hero-red { font-size: 12px; padding: 10px 16px; min-width: 120px; }
+    .why-section h2 { font-size: 19px; }
+    .jobs-header h2 { font-size: 17px; }
+    .job-row-info .title-line h4 { font-size: 15px; }
+    .cta-left h3 { font-size: 18px; }
+    .about-content h3 { font-size: 19px; }
+    .footer-logo { height: 45px; }
     .modal-body { padding: 15px 12px; }
-    .branch-info-box .info-row { font-size: 12px; }
-    .btn-call, .btn-call-green, .btn-whatsapp {
-        font-size: 12px;
-        padding: 9px 10px;
-        min-width: 80px;
-    }
+    .products-header .products-logo { height: 60px; }
+    .stat-number { font-size: 24px; }
+    .stat-label { font-size: 11px; }
 }
 </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg">
+<!-- ============================================
+     ===== النافبار =============================
+     ============================================ -->
+<nav class="navbar">
 <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="#" onclick="showMain(); return false;">
+        <!-- 🖼️ صورة 1: لوجو النافبار -->
         <img src="images/logo.png" class="brand-logo" alt="Novy Egypt Foods">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
@@ -1395,15 +1474,10 @@ footer{
     </button>
     <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-            <li class="nav-item"><a class="nav-link btn-home" href="#home" onclick="showMain()">الرئيسية</a></li>
-            <li class="nav-item"><a class="nav-link" href="#jobs" onclick="showMain()"><i class="fa-solid fa-briefcase ms-1"></i> الوظائف</a></li>
-            <li class="nav-item">
-                <a class="nav-link btn-products" href="#products" onclick="event.preventDefault(); showProducts()">
-                    <i class="fa-solid fa-box-open ms-1"></i> المنتجات
-                </a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#branches" onclick="showMain()"><i class="fa-solid fa-location-dot ms-1"></i> الفروع</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about" onclick="showMain()"><i class="fa-solid fa-users ms-1"></i> عن <span class="novy-brand">Novy</span> Jobs</a></li>
+            <li class="nav-item"><a class="nav-link" href="#home" onclick="showMain()">الرئيسية</a></li>
+            <li class="nav-item"><a class="nav-link" href="#jobs" onclick="showMain()">الوظائف</a></li>
+            <li class="nav-item"><a class="nav-link" href="#products" onclick="event.preventDefault(); showProducts()">المنتجات</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about" onclick="showMain()">عن <span class="novy-brand">Novy</span></a></li>
         </ul>
     </div>
 </div>
@@ -1411,145 +1485,275 @@ footer{
 
 <div id="mainPage">
 
+<!-- ============================================
+     ===== الهيرو ===============================
+     ============================================ -->
 <section class="hero" id="home">
-<div class="container hero-content">
-    <div class="row">
-        <div class="col-lg-10">
-            <span class="badge rounded-pill bg-light text-danger px-3 py-2">منصة التوظيف وفرص العمل</span>
-            <h1>وظيفتك القادمة تبدأ من هنا</h1>
-            <p>ابحث عن الوظيفة المناسبة لك، واختر الفرع الأقرب، وسجل بياناتك مباشرة بدون إنشاء حساب.</p>
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1>
+                    ابدأ مستقبلك مع
+                    <span class="novy-red">NOVY</span>
+                </h1>
+                <p class="desc">
+                    انضم إلى فريق المبيعات المتميز وكن جزءاً من قصة نجاحنا
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="hero-decor">
+        <span class="line1">فرص حقيقية</span>
+        <span class="line2">لمستقبل <span class="gold">أفضل</span></span>
+    </div>
+</section>
 
-            <div class="search-panel">
-                <div class="row g-3">
-                    <div class="col-12 col-lg-5">
-                        <input id="searchJob" class="form-control" placeholder="🔍 ابحث عن وظيفة...">
-                    </div>
-                    <div class="col-12 col-lg-5">
-                        <select id="govFilter" class="form-select" onchange="showSuggestedBranch()">
-                            <option value="all">📍 اختر الفرع</option>
-                            <option value="الشرقية">الشرقية</option>
-                            <option value="وسط الإسكندرية">وسط الإسكندرية</option>
-                            <option value="غرب الإسكندرية">غرب الإسكندرية</option>
-                            <option value="شرق الإسكندرية">شرق الإسكندرية</option>
-                            <option value="القاهرة">القاهرة</option>
-                            <option value="الغربية">الغربية</option>
-                            <option value="الجيزة">الجيزة</option>
-                            <option value="المنوفية">المنوفية</option>
-                            <option value="الدقهلية">الدقهلية</option>
-                            <option value="القليوبية">القليوبية</option>
-                            <option value="اسيوط">اسيوط</option>
-                        </select>
-                    </div>
-                    <div class="col-12 col-lg-2">
-                        <button class="btn-search" id="searchBtn"><i class="fa-solid fa-magnifying-glass ms-1"></i> بحث</button>
-                    </div>
+<!-- ============================================
+     ===== شريط البحث ===========================
+     ============================================ -->
+<section class="search-section">
+    <div class="container">
+        <div class="search-panel">
+            <div class="row g-3 align-items-end">
+                <div class="col-lg-3 col-12">
+                    <label class="fw-bold mb-1 small text-muted">
+                        <i class="fa-solid fa-briefcase me-1"></i>
+                        اختر الوظيفة
+                    </label>
+                    <select id="jobTypeFilter" class="form-select">
+                        <option value="all">كل الوظائف</option>
+                        <option value="مندوب مبيعات">مندوب مبيعات</option>
+                        <option value="سائق">سائق</option>
+                        <option value="مشرف مبيعات">مشرف مبيعات</option>
+                        <option value="مدير فرع">مدير فرع</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-12">
+                    <label class="fw-bold mb-1 small text-muted">
+                        <i class="fa-solid fa-map-marker-alt me-1"></i>
+                        اختر المحافظة
+                    </label>
+                    <select id="govFilter" class="form-select" onchange="showSuggestedBranch()">
+                        <option value="all">كل المحافظات</option>
+                        <option value="الشرقية">الشرقية</option>
+                        <option value="وسط الإسكندرية">وسط الإسكندرية</option>
+                        <option value="غرب الإسكندرية">غرب الإسكندرية</option>
+                        <option value="شرق الإسكندرية">شرق الإسكندرية</option>
+                        <option value="القاهرة">القاهرة</option>
+                        <option value="الغربية">الغربية</option>
+                        <option value="الجيزة">الجيزة</option>
+                        <option value="المنوفية">المنوفية</option>
+                        <option value="الدقهلية">الدقهلية</option>
+                        <option value="القليوبية">القليوبية</option>
+                        <option value="اسيوط">اسيوط</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-12">
+                    <label class="fw-bold mb-1 small text-muted">
+                        <i class="fa-solid fa-search me-1"></i>
+                        ابحث
+                    </label>
+                    <input id="searchJob" class="form-control" placeholder="ابحث عن وظيفة...">
+                </div>
+                <div class="col-lg-3 col-12">
+                    <button class="btn-search-red" id="searchBtn">
+                        <i class="fa-solid fa-search"></i>
+                        ابحث عن وظيفة
+                    </button>
                 </div>
             </div>
-
-            <div id="suggestedBranchContainer"></div>
-        </div>
-    </div>
-</div>
-</section>
-
-<main class="container main">
-
-<section class="interview-banner">
-    <div class="interview-side">
-        <i class="fa-solid fa-calendar-check"></i>
-        <span>مواعيد المقابلات</span>
-    </div>
-    <div class="interview-body">
-        <h4 class="title">
-            <i class="fa-solid fa-clock"></i>
-            نستقبل المقابلات خلال الأوقات التالية
-        </h4>
-        <div class="interview-cards">
-            <div class="info-chip">
-                <span class="chip-icon"><i class="fa-solid fa-calendar-days"></i></span>
-                <span>من <strong>السبت</strong> إلى <strong>الخميس</strong></span>
-            </div>
-            <div class="info-chip">
-                <span class="chip-icon"><i class="fa-solid fa-hourglass-half"></i></span>
-                <span>من <strong>9 صباحاً</strong> حتى <strong>3 العصر</strong></span>
+            <div class="search-available">
+                <span><i class="fa-solid fa-calendar-check"></i> المقابلات من السبت إلى الخميس</span>
+                <span><i class="fa-solid fa-clock"></i> من 9 صباحاً حتى 3 العصر</span>
             </div>
         </div>
     </div>
 </section>
 
-<section class="featured">
-<div class="row align-items-center g-4">
-    <div class="col-lg-8">
-        <span class="featured-badge"><i class="fa-solid fa-star ms-1"></i> وظيفة مميزة</span>
-        <h2>مندوب مبيعات</h2>
-        <p class="mb-3">فرصتك للانضمام إلى فريق المبيعات وتحقيق النجاح والتطور المهني.</p>
-        <div class="d-flex flex-wrap gap-3">
-            <span><i class="fa-solid fa-location-dot ms-1"></i> جميع الفروع</span>
-            <span><i class="fa-solid fa-briefcase ms-1"></i> دوام كامل</span>
-            <span><i class="fa-solid fa-money-bill-wave ms-1"></i> ١١,٦٠٠ - ١٤,٠٠٠ ج</span>
-        </div>
-    </div>
-    <div class="col-lg-4 text-lg-start text-center">
-        <button class="btn-apply ms-2" onclick="openApplyForm()"><i class="fa-solid fa-paper-plane ms-1"></i> تقدم الآن</button>
-        <button class="btn-details mt-2 mt-lg-0" onclick="showJobDetails(1)">التفاصيل</button>
-    </div>
+<!-- اقتراح الفرع -->
+<div class="container">
+    <div id="suggestedBranchContainer"></div>
 </div>
-</section>
 
-<section id="jobs">
-<div class="row align-items-stretch">
-    <div class="col-lg-9">
-        <h2 class="section-title"><i class="fa-solid fa-briefcase ms-2"></i> أحدث الوظائف المتاحة</h2>
-        <div class="row g-4" id="jobContainer"></div>
-    </div>
-
-    <div class="col-lg-3" id="about">
-        <div class="side-box mt-lg-5">
-            <h4><i class="fa-solid fa-users ms-1"></i> لماذا <span class="novy-brand">Novy</span>؟</h4>
-            <ul class="p-0 mt-3">
-                <li><i class="fa-solid fa-circle-check check"></i> مرتب اساسى + عمولة + مسابقات</li>
-                <li><i class="fa-solid fa-circle-check check"></i> ضمان 75% من العمولة اول 3 شهور</li>
-                <li><i class="fa-solid fa-circle-check check"></i> فرصة للترقية</li>
-                <li><i class="fa-solid fa-circle-check check"></i> اختيار اقرب فرع مناسب</li>
-                <li><i class="fa-solid fa-circle-check check"></i> توفير مواصلات</li>
-                <li><i class="fa-solid fa-circle-check check"></i> تامينات من اول يوم</li>
-                <li><i class="fa-solid fa-circle-check check"></i> تدريب و تطوير</li>
-                <li><i class="fa-solid fa-circle-check check"></i> منح فى المناسبات</li>
-            </ul>
-            <div class="text-center mt-4">
-                <strong style="font-size:25px;"><span class="novy-brand">Novy</span> Jobs</strong>
-                <div class="small text-muted">وظيفتك أقرب مما تتخيل</div>
+<!-- ============================================
+     ===== شريط الإحصائيات ======================
+     ============================================ -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-box">
+            <div class="stat-item">
+                <span class="stat-number">+10000</span>
+                <span class="stat-label">موظف</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">+11</span>
+                <span class="stat-label">فرع</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">+30</span>
+                <span class="stat-label">توكيل</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">+50</span>
+                <span class="stat-label">وظيفة</span>
             </div>
         </div>
     </div>
-</div>
 </section>
 
-<section id="branches">
-<h2 class="section-title"><i class="fa-solid fa-filter ms-2"></i> ابحث حسب الفروع</h2>
-<div id="governorateFilters">
-<button class="filter-btn active" data-gov="all">جميع الفروع</button>
-<button class="filter-btn" data-gov="المنوفية">قويسنا</button>
-<button class="filter-btn" data-gov="الدقهلية">المنصورة</button>
-<button class="filter-btn" data-gov="الغربية">طنطا</button>
-<button class="filter-btn" data-gov="الشرقية">الزقازيق</button>
-<button class="filter-btn" data-gov="شرق الإسكندرية">شرق الإسكندرية</button>
-<button class="filter-btn" data-gov="وسط الإسكندرية">وسط الإسكندرية</button>
-<button class="filter-btn" data-gov="غرب الإسكندرية">غرب الإسكندرية</button>
-<button class="filter-btn" data-gov="القاهرة">القطامية</button>
-<button class="filter-btn" data-gov="القليوبية">مسطرد</button>
-<button class="filter-btn" data-gov="الجيزة">كرداسة</button>
-<button class="filter-btn" data-gov="اسيوط">منقباد</button>
-</div>
+<!-- ============================================
+     ===== ليه تنضم =============================
+     ============================================ -->
+<section class="why-section">
+    <div class="container">
+        <h2>ليه تنضم إلى <span class="red">NOVY</span> ؟</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h5>تأمين طبي<br>واجتماعي</h5>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h5>تدريب وتطوير<br>مستمر</h5>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <h5>فرص للترقي<br>والتطور</h5>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h5>دخل ومزايا<br>تنافسية</h5>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="why-item">
+                    <div class="why-icon">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h5>ضمان 75%<br>من العمولة</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-</main>
+<!-- ============================================
+     ===== الوظائف المتاحة =====================
+     ============================================ -->
+<section class="jobs-section" id="jobs">
+    <div class="container">
+        <div class="jobs-header">
+            <h2>
+                <i class="fa-solid fa-briefcase"></i>
+                الوظائف المتاحة
+            </h2>
+        </div>
+
+        <div id="jobContainer"></div>
+    </div>
+</section>
+
+<!-- ============================================
+     ===== فلتر المحافظة ========================
+     ============================================ -->
+<section class="gov-filter-section" id="branches">
+    <div class="container">
+        <h3>
+            <i class="fa-solid fa-map-marker-alt"></i>
+            الوظائف حسب المحافظة
+        </h3>
+        <div class="gov-pills">
+            <button class="gov-pill active" data-gov="all">جميع المحافظات</button>
+            <button class="gov-pill" data-gov="الشرقية">الشرقية</button>
+            <button class="gov-pill" data-gov="وسط الإسكندرية">وسط الإسكندرية</button>
+            <button class="gov-pill" data-gov="غرب الإسكندرية">غرب الإسكندرية</button>
+            <button class="gov-pill" data-gov="شرق الإسكندرية">شرق الإسكندرية</button>
+            <button class="gov-pill" data-gov="القاهرة">القاهرة</button>
+            <button class="gov-pill" data-gov="الغربية">الغربية</button>
+            <button class="gov-pill" data-gov="الجيزة">الجيزة</button>
+            <button class="gov-pill" data-gov="المنوفية">المنوفية</button>
+            <button class="gov-pill" data-gov="الدقهلية">الدقهلية</button>
+            <button class="gov-pill" data-gov="القليوبية">القليوبية</button>
+            <button class="gov-pill" data-gov="اسيوط">اسيوط</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     ===== بانر CTA =============================
+     ============================================ -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-box">
+            <div class="cta-left">
+                <h3>
+                    <i class="fa-solid fa-file-lines me-2"></i>
+                    قدّم بياناتك الآن بدون تسجيل
+                </h3>
+                <p>خطوات بسيطة، وهرجعلك في أقرب وقت</p>
+                <div class="cta-features">
+                    <span><i class="fa-solid fa-check"></i> لا تحتاج إلى حساب</span>
+                    <span><i class="fa-solid fa-check"></i> لا تحتاج إلى كلمة مرور</span>
+                    <span><i class="fa-solid fa-check"></i> لا توجد نماذج معقدة</span>
+                </div>
+            </div>
+            <button class="btn-cta-start" onclick="openApplyForm()">
+                <i class="fa-solid fa-arrow-left"></i>
+                ابدأ التقديم الآن
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     ===== عن Novy ==============================
+     ============================================ -->
+<section class="about-section" id="about">
+    <div class="container">
+        <div class="about-box">
+            <div class="about-image">
+                <!-- 🖼️ صورة 2: صورة العربية -->
+                <img src="images/novy-truck.png" alt="Novy Truck">
+            </div>
+            <div class="about-content">
+                <h3>عن NOVY</h3>
+                <p>
+                    Novy هي كبرى شركة حلويات، تقدم 5 فئات (كيك، شوكولاتة، بسكويت، ويفر وجيلي) في جميع أنحاء مصر وتصدّر مجموعة منتجاتها إلى الخارج إلى دول مختلفة.
+نوفي هي شركة تابعة لمجموعة Egypt Foods، والتي تأسست كوحدة أعمال منفصلة في يونيو 2020 مسؤولة عن تصنيع وتوزيع مجموعة واسعة من الحلويات. نحن نعمل باستمرار على تحويل محفظتنا من خلال تقديم منتجات جديدة مبتكرة لمستهلكينا تقدم قيمة جيدة مقابل المال.
+في نوفي، نحن حريصون على بناء ثقافة مبادرة وسلوكيات تركز حول العمل الجماعي والاهتمام والتعاون والثقة.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 </div>
 
+<!-- ============================================
+     ===== صفحة المنتجات ========================
+     ============================================ -->
 <div id="productsPage" style="display:none;">
 <section class="products-section">
 <div class="container">
     <div class="products-header">
+        <!-- 🖼️ صورة 3: لوجو صفحة المنتجات -->
+        <img src="images/logo.png" class="products-logo" alt="Novy Egypt Foods">
         <span class="badge-products"><i class="fa-solid fa-box-open ms-1"></i> منتجاتنا</span>
         <h2>منتجات <span class="novy-brand">Novy</span> Egypt Foods</h2>
         <p>جودة تلقى بها</p>
@@ -1558,7 +1762,7 @@ footer{
     <div class="row g-4" id="productsContainer"></div>
 
     <div class="text-center mt-5">
-        <button class="btn-job" onclick="showMain()" style="padding: 12px 40px; font-size: 16px;">
+        <button class="btn-hero-red" onclick="showMain()" style="padding: 14px 40px;">
             <i class="fa-solid fa-arrow-right ms-2"></i> العودة للرئيسية
         </button>
     </div>
@@ -1566,29 +1770,71 @@ footer{
 </section>
 </div>
 
+<!-- ============================================
+     ===== الفوتر ===============================
+     ============================================ -->
 <footer>
-<div class="container text-center">
-    <h3 class="fw-bold text-white"><span style="color:#fff">Novy</span> Jobs</h3>
-    <p class="mb-1">معًا نصنع مستقبلًا أفضل</p>
-    <small>© 2026 Novy Jobs - جميع الحقوق محفوظة</small>
-</div>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-5 col-md-6">
+                <!-- 🖼️ صورة 4: لوجو الفوتر -->
+                <img src="images/logo-white.png" class="footer-logo" alt="Novy">
+                <p class="footer-tagline">معاً نبني مستقبل أفضل</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/wazzafEFG" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/201283805370" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3">
+                <h5 class="footer-col-title">روابط سريعة</h5>
+                <ul class="footer-links">
+                    <li><a href="#jobs" onclick="showMain()">الوظائف</a></li>
+                    <li><a href="#" onclick="openApplyForm()">قدم بياناتك</a></li>
+                    <li><a href="#about" onclick="showMain()">عن نوفى</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-3">
+                <h5 class="footer-col-title">تابعنا</h5>
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/wazzafEFG" target="_blank" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/201283805370" target="_blank" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Novy Egypt - حقوق محفوظة | مرحباً بك من هنا
+        </div>
+    </div>
 </footer>
 
+<!-- ============================================
+     ===== المودال: تفاصيل الوظيفة ==============
+     ============================================ -->
 <div class="modal fade" id="jobDetailsModal" tabindex="-1">
 <div class="modal-dialog modal-lg modal-dialog-centered">
 <div class="modal-content">
 <div class="modal-header">
-<h5 class="modal-title">تفاصيل الوظيفة</h5>
+<h5 class="modal-title"><i class="fa-solid fa-briefcase me-2"></i>تفاصيل الوظيفة</h5>
 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 <div class="modal-body" id="jobDetailsContent"></div>
 </div></div></div>
 
+<!-- ============================================
+     ===== المودال: تقديم =======================
+     ============================================ -->
 <div class="modal fade" id="applyModal" tabindex="-1">
 <div class="modal-dialog modal-lg modal-dialog-centered">
 <div class="modal-content">
 <div class="modal-header">
-<h5 class="modal-title">تقديم على الوظيفة</h5>
+<h5 class="modal-title"><i class="fa-solid fa-pen-fancy me-2"></i>تقديم على الوظيفة</h5>
 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 <div class="modal-body p-0">
@@ -1599,8 +1845,9 @@ footer{
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 // ============================================
-// ===== بيانات المنتجات (10 براندات) =========
+// ===== بيانات المنتجات ======================
 // ============================================
+// 🖼️ صور المنتجات - غيّر المسار حسب صورتك
 const products = [
     { id: 1, brand: "Shots", image: "images/products/shots.png" },
     { id: 2, brand: "Waves", image: "images/products/waves.png" },
@@ -1643,7 +1890,7 @@ function showMain() {
 }
 
 // ============================================
-// ===== بيانات الوظائف مع الشروط =============
+// ===== بيانات الوظائف =======================
 // ============================================
 const _e = ['M','a','h','m','o','u','d','.','g','a','d','@','e','g','y','p','t','f','o','o','d','s','g','r','o','u','p','.','c','o','m'];
 function getEmail(){ return _e.join(''); }
@@ -1653,11 +1900,16 @@ const jobs=[
 {
     id:1,
     title:"مندوب مبيعات",
-    salary:"١١,٦٠٠ - ١٤,٠٠٠ ج",
+    salary:"راتب مجزي + عمولات",
     icon:"fa-user-tie",
     description:"زيارة العملاء، عرض المنتجات، متابعة الطلبات وتحقيق أهداف المبيعات.",
     branches:["الشرقية","غرب الإسكندرية","الدقهلية","وسط الإسكندرية","شرق الإسكندرية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
     applyMethod: "form",
+    urgent: true,
+    meta: {
+        location: "شركة نوفى - الجيزة",
+        experience: "خبرة 1-3 سنوات"
+    },
     requirements: [
         { text: "وجود رخصة سارية (خاصة - مهنية) - شرط أساسي", type: "essential" },
         { text: "مؤهل متوسط / عالي", type: "normal" },
@@ -1666,15 +1918,40 @@ const jobs=[
         { text: "لا نقبل الطلبة", type: "warning" }
     ]
 },
-// 2. سائق
+// 2. مشرف مبيعات
 {
-    id:4,
-    title:"سائق",
-    salary:"١٠,٠٠٠ ج",
+    id:2,
+    title:"مشرف مبيعات",
+    salary:"راتب مجزي + عمولات",
+    icon:"fa-users",
+    description:"الإشراف على فريق المبيعات ومتابعة الأداء والتطوير.",
+    branches:["الشرقية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية","الدقهلية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
+    applyMethod: "email",
+    urgent: false,
+    meta: {
+        location: "شركة نوفى - الجيزة",
+        experience: "خبرة +5 سنوات"
+    },
+    requirements: [
+        { text: "مؤهل عالي", type: "normal" },
+        { text: "خبرة 5 سنوات في مجال FMCG", type: "essential" },
+        { text: "رخصة قيادة خاصة", type: "essential" },
+    ]
+},
+// 3. سائق توصيل
+{
+    id:3,
+    title:"سائق توصيل",
+    salary:"راتب مجزي + عمولات",
     icon:"fa-truck",
     description:"توصيل المنتجات والالتزام بمواعيد التسليم.",
     branches:["الشرقية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية","الدقهلية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
     applyMethod: "form",
+    urgent: false,
+    meta: {
+        location: "شركة نوفى - الجيزة",
+        experience: "رخصة خاصة"
+    },
     requirements: [
         { text: "رخصة درجة ثانية", type: "essential" },
         { text: "موقف واضح من التجنيد (إعفاء نهائي - أدى الخدمة العسكرية)", type: "normal" },
@@ -1682,30 +1959,20 @@ const jobs=[
         { text: "لا نقبل الطلبة", type: "warning" }
     ]
 },
-// 3. مشرف مبيعات
-{
-    id:3,
-    title:"مشرف مبيعات",
-    salary:"غير متاح",
-    icon:"fa-chart-line",
-    description:"الإشراف على فريق المبيعات ومتابعة الأداء والتطوير.",
-    branches:["الشرقية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية","الدقهلية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
-    applyMethod: "email",
-    requirements: [
-        { text: "مؤهل عالي", type: "normal" },
-        { text: "خبرة 5 سنوات في مجال FMCG", type: "essential" },
-        { text: "رخصة قيادة خاصة", type: "essential" },
-    ]
-},
 // 4. مدير فرع
 {
-    id:2,
+    id:4,
     title:"مدير فرع",
-    salary:"غير متاح",
-    icon:"fa-building",
+    salary:"راتب مجزي + عمولات",
+    icon:"fa-user-tie",
     description:"إدارة الفرع والإشراف على فريق العمل ومتابعة تحقيق الأهداف.",
-    branches:["شرق الإسكندرية","القاهرة"],
+    branches:["الشرقية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية","الدقهلية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
     applyMethod: "email",
+    urgent: false,
+    meta: {
+        location: "شركة نوفى - الجيزة",
+        experience: "خبرة +10 سنوات"
+    },
     requirements: [
         { text: "مؤهل عالي", type: "normal" },
         { text: "خبرة 10 سنوات في مجال FMCG", type: "essential" },
@@ -1717,9 +1984,6 @@ const jobs=[
 let currentGov="all";
 let selectedBranchName = null;
 
-// ============================================
-// ===== فتح الإيميل مع بيانات الوظيفة والفرع =====
-// ============================================
 function sendCVEmail(jobTitle, branchName) {
     const email = getEmail();
     const subject = `التقديم على وظيفة ${jobTitle} - فرع ${branchName}`;
@@ -1738,74 +2002,73 @@ function sendCVEmail(jobTitle, branchName) {
     window.location.href = mailtoLink;
 }
 
+// ============================================
+// ===== عرض الوظائف ==========================
+// ============================================
 function renderJobs(){
  const search=document.getElementById("searchJob").value.trim();
  const govSelect=document.getElementById("govFilter").value;
+ const typeSelect=document.getElementById("jobTypeFilter").value;
  const gov=govSelect!=="all"?govSelect:currentGov;
 
  const result=jobs.filter(j=>{
    const a=!search || j.title.includes(search);
    const c=gov==="all" || j.branches.includes(gov);
-   return a&&c;
+   const d=typeSelect==="all" || j.title===typeSelect;
+   return a&&c&&d;
  });
 
  const container=document.getElementById("jobContainer");
  if(!result.length){
-   container.innerHTML='<div class="col-12"><div class="alert alert-light text-center">لا توجد وظائف مطابقة للبحث.</div></div>';
+   container.innerHTML='<div class="alert alert-light text-center" style="border-radius:15px;padding:30px;"><i class="fa-solid fa-search fa-2x text-muted mb-3 d-block"></i>لا توجد وظائف مطابقة للبحث.</div>';
    return;
  }
  
  container.innerHTML=result.map(j=>{
    let applyButton = '';
-   let emailBadge = '';
-   
    if (j.applyMethod === 'email') {
-       applyButton = `<button class="btn-email" onclick="showJobDetails(${j.id})"><i class="fa-solid fa-envelope"></i> أرسل CV</button>`;
-       emailBadge = '<span class="badge badge-email"><i class="fa-solid fa-envelope"></i> CV بالإيميل</span>';
+       applyButton = `<button class="btn-apply-row" onclick="showJobDetails(${j.id})">قدم الآن <i class="fa-solid fa-arrow-left"></i></button>`;
    } else {
-       applyButton = `<button class="btn-job" onclick="openApplyForm()"><i class="fa-solid fa-paper-plane"></i> تقدم الآن</button>`;
+       applyButton = `<button class="btn-apply-row" onclick="openApplyForm()">قدم الآن <i class="fa-solid fa-arrow-left"></i></button>`;
    }
    
+   const detailsButton = `<button class="btn-details-row" onclick="showJobDetails(${j.id})"><i class="fa-solid fa-eye"></i> التفاصيل</button>`;
+   
+   const urgentBadge = j.urgent ? '<span class="badge-urgent"><i class="fa-solid fa-fire"></i> مطلوب فورا</span>' : '';
+   
    return `
- <div class="col-12 col-md-6 col-xl-4">
-  <div class="job-card">
-   <div class="job-card-header">
-    <div class="job-icon"><i class="fa-solid ${j.icon}"></i></div>
-    ${emailBadge}
+ <div class="job-row">
+  <div class="job-row-icon">
+   <i class="fa-solid ${j.icon}"></i>
+  </div>
+  
+  <div class="job-row-info">
+   <div class="title-line">
+    <h4>${j.title}</h4>
+    ${urgentBadge}
    </div>
-   <div class="job-card-body">
-    <h5>${j.title}</h5>
-    
-    <div class="job-info-row branches">
-     <i class="fa-solid fa-store"></i>
-     <span>${j.branches.length} فرع متاح</span>
-    </div>
-    <div class="job-info-row location">
-     <i class="fa-solid fa-location-dot"></i>
-     <span>${j.branches.slice(0, 3).join("، ")}${j.branches.length > 3 ? ' و' + (j.branches.length - 3) + ' أخرى' : ''}</span>
-    </div>
-    <div class="job-info-row salary">
-     <i class="fa-solid fa-money-bill-wave"></i>
-     <span>${j.salary}</span>
-    </div>
-    
-    <div class="job-card-actions">
-     ${applyButton}
-     <button class="btn-details-icon" onclick="showJobDetails(${j.id})" title="التفاصيل">
-      <i class="fa-solid fa-eye"></i>
-     </button>
-    </div>
+   <div class="job-row-meta">
+    <span><i class="fa-solid fa-location-dot"></i> ${j.meta.location}</span>
+    <span><i class="fa-solid fa-briefcase"></i> ${j.meta.experience}</span>
+    <span><i class="fa-solid fa-money-bill-wave"></i> ${j.salary}</span>
    </div>
+  </div>
+  
+  <div class="job-row-actions">
+   ${applyButton}
+   ${detailsButton}
   </div>
  </div>`;
  }).join("");
 }
 
+// ============================================
+// ===== تفاصيل الوظيفة =======================
+// ============================================
 function showJobDetails(id){
  const j=jobs.find(x=>x.id===id);
  if(!j)return;
 
- // بناء الشروط
  let requirementsHTML = '';
  if (j.requirements && j.requirements.length > 0) {
      requirementsHTML = `
@@ -1822,11 +2085,9 @@ function showJobDetails(id){
      </div>`;
  }
 
- // بناء قسم التقديم
  let applySectionHTML = '';
  
  if (j.applyMethod === 'email') {
-     // ===== للمدير والمشرف: اختيار الفرع المتاح للوظيفة فقط =====
      const branchOptions = j.branches.map(b => `<option value="${b}">${b}</option>`).join('');
      
      applySectionHTML = `
@@ -1851,7 +2112,6 @@ function showJobDetails(id){
          </button>
      </div>`;
  } else {
-     // ===== للمندوب والسائق: نموذج عادي =====
      applySectionHTML = `
      <div class="branch-selector-box mt-3">
       <h6 class="fw-bold"><i class="fa-solid fa-store me-2" style="color:var(--red);"></i>اختر الفرع المناسب لك</h6>
@@ -1868,7 +2128,7 @@ function showJobDetails(id){
      </div>
      
      <div class="text-center mt-4">
-      <button class="btn-job" onclick="openApplyFormWithBranch()" id="applyBtn" disabled>
+      <button class="btn-apply-row" onclick="openApplyFormWithBranch()" id="applyBtn" disabled style="width:100%;">
        <i class="fa-solid fa-paper-plane ms-1"></i> تقديم على الوظيفة
       </button>
       <button class="btn btn-outline-secondary rounded-pill mt-2" data-bs-dismiss="modal">إغلاق</button>
@@ -1877,7 +2137,7 @@ function showJobDetails(id){
 
  const content = document.getElementById("jobDetailsContent");
  content.innerHTML = `
- <h3 class="fw-bold">${j.title}</h3>
+ <h3 class="fw-bold" style="color:var(--navy);">${j.title}</h3>
  <p class="text-muted">${j.description}</p>
  <div class="row g-3 mt-2">
   <div class="col-12 col-md-6"><div class="p-3 bg-light rounded-3"><strong>الراتب</strong><br>${j.salary}</div></div>
@@ -1891,7 +2151,6 @@ function showJobDetails(id){
  new bootstrap.Modal(document.getElementById("jobDetailsModal")).show();
 }
 
-// ===== لما المستخدم يختار فرع للمدير/المشرف =====
 function onEmailBranchChange(jobId) {
     const select = document.getElementById('emailBranchSelector');
     const btn = document.getElementById('emailSendBtn');
@@ -1910,7 +2169,6 @@ function onEmailBranchChange(jobId) {
     }
 }
 
-// ===== إرسال الإيميل للمدير/المشرف =====
 function sendEmailFromModal(jobId) {
     const select = document.getElementById('emailBranchSelector');
     const branchName = select ? select.value : '';
@@ -2264,8 +2522,9 @@ function clearSuggestedBranch() {
 
 document.getElementById("searchBtn").addEventListener("click",()=>{renderJobs();showSuggestedBranch();});
 document.getElementById("searchJob").addEventListener("keyup",e=>{if(e.key==="Enter"){renderJobs();showSuggestedBranch();}});
-document.querySelectorAll(".filter-btn").forEach(b=>b.addEventListener("click",function(){
- document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));
+document.getElementById("jobTypeFilter").addEventListener("change", renderJobs);
+document.querySelectorAll(".gov-pill").forEach(b=>b.addEventListener("click",function(){
+ document.querySelectorAll(".gov-pill").forEach(x=>x.classList.remove("active"));
  this.classList.add("active");
  currentGov=this.dataset.gov;
  document.getElementById("govFilter").value="all";
