@@ -1687,7 +1687,7 @@ footer {
                     <div class="why-icon">
                         <i class="fa-solid fa-car-side"></i>
                     </div>
-                    <h5>بيات سيارة مع<br>المندوب</h5>
+                    <h5>سيارة مع<br>المندوب</h5>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-6">
@@ -1941,7 +1941,6 @@ const _e = ['M','a','h','m','o','u','d','.','g','a','d','@','e','g','y','p','t',
 function getEmail(){ return _e.join(''); }
 
 const jobs=[
-// 1. مندوب مبيعات - تقديم مباشر + فرع اختياري
 {
     id:1,
     title:"مندوب مبيعات",
@@ -1962,7 +1961,6 @@ const jobs=[
         { text: "لا نقبل الطلبة", type: "warning" }
     ]
 },
-// 2. مشرف مبيعات - اختيار فرع إجباري
 {
     id:2,
     title:"مشرف مبيعات",
@@ -1981,7 +1979,6 @@ const jobs=[
         { text: "رخصة قيادة خاصة", type: "essential" }
     ]
 },
-// 3. سائق توصيل - تقديم مباشر + فرع اختياري
 {
     id:3,
     title:"سائق توصيل",
@@ -2001,14 +1998,13 @@ const jobs=[
         { text: "لا نقبل الطلبة", type: "warning" }
     ]
 },
-// 4. مدير فرع - اختيار فرع إجباري
 {
     id:4,
     title:"مدير فرع",
     salary:"راتب مجزي + عمولات",
     icon:"fa-user-tie",
     description:"إدارة الفرع والإشراف على فريق العمل ومتابعة تحقيق الأهداف.",
-    branches:["غرب الإسكندرية","القاهرة"],
+    branches:["الشرقية","وسط الإسكندرية","شرق الإسكندرية","غرب الإسكندرية","الدقهلية","المنوفية","القليوبية","اسيوط","القاهرة","الغربية","الجيزة"],
     applyMethod: "email",
     urgent: false,
     meta: {
@@ -2024,6 +2020,7 @@ const jobs=[
 
 let currentGov="all";
 let selectedBranchName = null;
+let modalHistoryAdded = false;
 
 function sendCVEmail(jobTitle, branchName) {
     const email = getEmail();
@@ -2128,7 +2125,6 @@ function showJobDetails(id){
  let applySectionHTML = '';
  
  if (j.applyMethod === 'email') {
-     // مشرف مبيعات + مدير فرع (إيميل + اختيار فرع إجباري)
      const branchOptions = j.branches.map(b => `<option value="${b}">${b}</option>`).join('');
      
      applySectionHTML = `
@@ -2153,7 +2149,6 @@ function showJobDetails(id){
          </button>
      </div>`;
  } else {
-     // مندوب مبيعات + سائق توصيل (تقديم مباشر + اختيار فرع اختياري)
      applySectionHTML = `
      <div class="branch-selector-box mt-3">
       <h6 class="fw-bold">
@@ -2190,6 +2185,8 @@ function showJobDetails(id){
 
  ${applySectionHTML}`;
 
+ // ✅ فتح المودال مع إضافة History للرجوع
+ addModalHistory();
  new bootstrap.Modal(document.getElementById("jobDetailsModal")).show();
 }
 
@@ -2225,10 +2222,44 @@ function sendEmailFromModal(jobId) {
 }
 
 function openApplyForm(){
+ // ✅ إضافة History قبل فتح المودال
+ addModalHistory();
  new bootstrap.Modal(document.getElementById("applyModal")).show();
 }
 
-// دالة عرض معلومات الفرع (اختياري) للمندوب والسائق
+// ============================================
+// ===== إدارة زر الرجوع ======================
+// ============================================
+function addModalHistory() {
+    if (!modalHistoryAdded) {
+        history.pushState({ modalOpen: true }, '', '');
+        modalHistoryAdded = true;
+    }
+}
+
+// مراقبة زر الرجوع في الموبايل
+window.addEventListener('popstate', function(event) {
+    // لو فيه مودال مفتوح → اقفله
+    const openModals = document.querySelectorAll('.modal.show');
+    if (openModals.length > 0) {
+        openModals.forEach(modalEl => {
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) modal.hide();
+        });
+        modalHistoryAdded = false;
+    }
+});
+
+// لما أي مودال يتقفل (بأي طريقة) → نصفّر العلم
+document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('hidden.bs.modal', () => {
+        modalHistoryAdded = false;
+    });
+});
+
+// ============================================
+// ===== عرض معلومات الفرع (اختياري) ==========
+// ============================================
 function updateBranchInfoOptional(){
  const select = document.getElementById('branchSelector');
  if (!select) return;
